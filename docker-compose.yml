@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  # Сервис для PHP и Nginx
+  web:
+    build:
+      context: ./docker/php
+    container_name: gamedev_web
+    ports:
+      - "8080:80" # Мы будем заходить на сайт через http://localhost:8080
+    volumes:
+      - ./src:/var/www/html  # Синхронизирует папку src с папкой внутри контейнера
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf # Подключаем конфиг Nginx
+    depends_on:
+      - db
+
+  # Сервис для базы данных PostgreSQL
+  db:
+    image: postgres:13
+    container_name: gamedev_db
+    restart: always
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: gamedev_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
