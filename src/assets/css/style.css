@@ -122,3 +122,34 @@ a:hover {
     padding: 1.5rem;
     border-left: 3px solid var(--accent-color);
 }
+
+/* Стили для слайдера */
+.swiper {
+    width: 100%;
+    height: 85vh;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+    padding: 0 10%;
+}
+
+.swiper-slide .hero-content {
+    text-align: left;
+}
+
+/* Стилизация кнопок и пагинации Swiper под нашу тему */
+.swiper-button-next, .swiper-button-prev {
+    color: var(--accent-color) !important;
+}
+
+.swiper-pagination-bullet-active {
+    background: var(--accent-color) !important;
+}
