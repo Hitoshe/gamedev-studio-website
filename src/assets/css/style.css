@@ -1,0 +1,124 @@
+/* Используем переменные для удобного управления цветами */
+:root {
+    --bg-color: #121212; /* Очень темный фон */
+    --surface-color: #1e1e1e; /* Цвет для карточек и панелей */
+    --primary-text-color: #e0e0e0; /* Основной светлый текст */
+    --secondary-text-color: #a0a0a0; /* Вторичный текст */
+    --accent-color: #d4a017; /* Акцентный цвет, как золото или огонь */
+    --font-main: 'MedievalSharp', serif; /* Наш "фэнтезийный" шрифт */
+}
+
+/* Общие стили */
+body {
+    background-color: var(--bg-color);
+    color: var(--primary-text-color);
+    font-family: Arial, sans-serif; /* Обычный шрифт для простого текста */
+    margin: 0;
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-main);
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #fff;
+}
+
+/* Стили для хэдера (меню) */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-bottom: 1px solid var(--accent-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo a {
+    font-family: var(--font-main);
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.main-nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+}
+
+.main-nav ul li {
+    margin-left: 2rem;
+}
+
+.main-nav a {
+    font-family: var(--font-main);
+    font-size: 1.1rem;
+}
+
+/* Стили для главной секции (Hero Section) */
+.hero-section {
+    height: 80vh;
+    background: url('.jpg') no-repeat center center/cover; /* TODO: Картинку сюда */
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 10%;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.btn-buy {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+    font-family: var(--font-main);
+    font-size: 1.2rem;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-buy:hover {
+    background-color: #ffc107;
+    color: #000;
+}
+
+/* Стили для секции новостей */
+.news-section {
+    padding: 4rem 10%;
+}
+
+.news-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.news-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.news-item {
+    background-color: var(--surface-color);
+    padding: 1.5rem;
+    border-left: 3px solid var(--accent-color);
+}
