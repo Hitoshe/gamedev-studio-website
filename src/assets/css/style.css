@@ -63,7 +63,7 @@ a:hover {
 
 .main-nav a {
     font-family: var(--font-main);
-    font-size: 1.1rem;
+    font-size: 1.6rem;
 }
 
 /* Стили для главной секции (Hero Section) */
@@ -127,22 +127,46 @@ a:hover {
 .swiper {
     width: 100%;
     height: 85vh;
+
+
+    overflow: hidden; 
 }
 
 .swiper-slide {
-    text-align: center;
-    font-size: 18px;
-    background: #fff;
+    width: 100%;
+    height: 100%;
+    margin: 0 !important; /* Убираем любые внешние отступы */
+    padding: 0 10%;      /* Внутренние отступы оставляем для контента */
+    box-sizing: border-box; /* Говорим браузеру включать padding в общую ширину */
+    /* -------------------------- */
+
+    /* Это стили для контента внутри слайда */
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    text-align: left;
+    
+    /* Стили для фона, которые у вас уже есть */
     background-size: cover;
     background-position: center;
-    padding: 0 10%;
 }
 
-.swiper-slide .hero-content {
-    text-align: left;
+.hero-content {
+    /* Добавляем тень для лучшей читаемости на любом фоне */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+    max-width: 600px; /* Ограничиваем ширину блока с текстом, чтобы он не растягивался */
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    color: #fff; /* Можно явно задать белый цвет */
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: var(--primary-text-color); /* Используем наш светлый цвет текста */
 }
 
 /* Стилизация кнопок и пагинации Swiper под нашу тему */
@@ -152,4 +176,41 @@ a:hover {
 
 .swiper-pagination-bullet-active {
     background: var(--accent-color) !important;
+}
+
+/* --- Стили для блока авторизации в шапке --- */
+
+.auth-links {
+    display: flex;         /* Включаем Flexbox для красивого выравнивания */
+    align-items: center;   /* Выравниваем email и ссылки по центру по вертикали */
+    white-space: nowrap;   /* Запрещаем перенос текста на новую строку */
+}
+
+.auth-links .user-email {
+    color: var(--secondary-text-color); /* Используем более тусклый серый цвет для email */
+    margin-right: 1.5rem; /* <-- Вот главный отступ! Можете изменить значение */
+}
+
+/* 
+   Стили для ссылок Login/Register/Logout.
+   Мы добавляем отступ слева, чтобы был воздух между "Login" и "Register".
+*/
+.auth-links a {
+    margin-left: 1rem;
+}
+
+/* 
+   Убираем лишний отступ у самой первой ссылки,
+   чтобы она не была сдвинута относительно правого края
+*/
+.auth-links a:first-child {
+    margin-left: 0;
+}
+
+/* 
+   Убираем отступ у ссылки Logout, так как отступ уже есть
+   у элемента с email справа от него.
+*/
+.auth-links .user-email + a {
+    margin-left: 0;
 }
