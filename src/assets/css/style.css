@@ -6,6 +6,7 @@
     --secondary-text-color: #a0a0a0; /* Вторичный текст */
     --accent-color: #d4a017; /* Акцентный цвет, как золото или огонь */
     --font-main: 'MedievalSharp', serif; /* Наш "фэнтезийный" шрифт */
+    --content-bg-color: #1A1A1A; /* Фон для контента после слайдера */
 }
 
 /* Общие стили */
@@ -42,6 +43,26 @@ a:hover {
     position: sticky;
     top: 0;
     z-index: 1000;
+
+    /* Начальное, прозрачное состояние хэдера */
+    background-color: transparent;
+    border-bottom: 1px solid transparent; /* Граница тоже прозрачная */
+
+    /* Плавный переход для фона и границы */
+    transition: background-color 0.4s ease, border-color 0.4s ease;
+}
+
+/* Стиль хэдера при прокрутке (когда JS добавит класс .scrolled) */
+.main-header.scrolled {
+    /* Полупрозрачный фон */
+    background-color: rgba(18, 18, 18, 0.75); /* Используем наш --bg-color с прозрачностью */
+    
+    /* Эффект размытия "матового стекла" */
+    -webkit-backdrop-filter: blur(10px); /* Для Safari */
+    backdrop-filter: blur(10px);
+    
+    /* Возвращаем границу */
+    border-bottom: 1px solid var(--accent-color);
 }
 
 .logo a {
@@ -113,7 +134,7 @@ a:hover {
 
 .news-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
 }
 
@@ -213,4 +234,219 @@ a:hover {
 */
 .auth-links .user-email + a {
     margin-left: 0;
+}
+
+/*
+========================================
+ФИНАЛЬНЫЕ Стили для футера с разделением на 2 цвета
+========================================
+*/
+
+/* Главный контейнер футера */
+.site-footer {
+    background-color: var(--bg-color); /* Основной темный фон */
+}
+
+/* Создаем сетку из двух колонок: левая и правая */
+.footer-grid {
+    display: grid;
+    /* Левая колонка занимает ~35%, правая - все остальное */
+    grid-template-columns: 35% 1fr; 
+    max-width: 1400px; /* Ограничиваем общую ширину */
+    margin: 0 auto;
+}
+
+/* Левая панель */
+.footer-left-panel {
+    padding: 4rem 3rem;
+}
+
+/* Правая панель получает свой фон */
+.footer-right-panel {
+    background-color: #1a1a1a; /* Светло-серый фон, как у Larian */
+    padding: 4rem 3rem;
+}
+
+/* Внутренняя сетка для "квадратиков" в правой панели */
+.right-panel-grid {
+    display: grid;
+    /* Делим на 4 равных колонки */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-bottom: 4rem; /* Отступ до копирайта */
+}
+
+/* Стили заголовков (сохраняем стиль Larian) */
+.footer-heading-large {
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0 0 1.5rem 0;
+}
+.footer-heading-large a {
+    color: inherit;
+    text-decoration: none;
+}
+.footer-heading-large a:hover {
+    color: var(--accent-color);
+}
+.footer-heading-small {
+    font-family: Arial, sans-serif;
+    color: var(--secondary-text-color);
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    margin: 0 0 0.5rem 0;
+}
+/* Особый стиль для заголовка в левой панели */
+.footer-left-panel .footer-heading-large {
+    font-family: var(--font-main);
+    font-size: 1.8rem;
+    text-transform: none;
+    letter-spacing: normal;
+}
+
+/* Списки ссылок */
+.link-list, .social-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.link-list li, .social-links li {
+    margin-bottom: 0.8rem;
+}
+.link-list li a, .social-links li a {
+    color: var(--secondary-text-color);
+    text-decoration: none;
+}
+.link-list li a:hover, .social-links li a:hover {
+    color: #fff;
+}
+.social-links {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+.social-links i {
+    font-size: 1.5rem;
+    width: 30px;
+}
+
+/* Нижняя часть с копирайтом (теперь внутри правой панели) */
+.footer-bottom {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    border-top: 1px solid #333;
+    padding-top: 2rem;
+}
+.footer-logo img {
+    height: 60px;
+    opacity: 0.8;
+}
+.footer-copyright {
+    color: var(--secondary-text-color);
+    font-size: 0.9rem;
+}
+.footer-copyright a {
+    color: var(--primary-text-color);
+}
+
+/* Адаптивность */
+@media (max-width: 1100px) {
+    .right-panel-grid {
+        grid-template-columns: 1fr 1fr; /* 2x2 "квадратика" на планшетах */
+    }
+}
+@media (max-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1fr; /* Все встает в одну колонку */
+    }
+    .right-panel-grid {
+        grid-template-columns: 1fr 1fr; /* Оставляем 2 колонки для ссылок */
+    }
+}
+
+/*
+========================================
+НОВЫЕ Стили для боковых колонн (начинаются после слайдера)
+========================================
+*/
+
+/* Переменная для ширины колонн */
+:root {
+    --column-width: 80px; /* Делаем колонны более узкими */
+}
+
+/* Гарантируем, что слайдер всегда будет на 100% ширины */
+.hero-slider {
+    width: 100%;
+    position: relative;
+}
+
+.hero-slider::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 150px;
+    background: linear-gradient(to top, var(--content-bg-color), transparent);
+    z-index: 1;
+}
+
+/* обертка, которая будет содержать колонны как градиент */
+.content-with-columns {
+    box-shadow: 0 0 40px 10px rgba(0,0,0,0.6);
+    position: relative;
+    z-index: 2;
+    
+    /* 
+     * Используем градиенты
+     * Первый градиент - слева: от полупрозрачного черного к полностью прозрачному.
+     * Второй градиент - справа: то же самое, но в другую сторону.
+     */
+    background-image: linear-gradient(to right, rgba(0,0,0,0.7), transparent), 
+                      linear-gradient(to left, rgba(0,0,0,0.7), transparent);              
+    background-position: left top, right top; /* Позиция каждого градиента */
+    background-repeat: no-repeat, no-repeat; /* Градиенты не нужно повторять */
+    
+    /* Размер каждого градиента - равен ширине наших "колонн" */
+    background-size: var(--column-width) 100%, var(--column-width) 100%; 
+    
+    background-color: var(--bg-color); /* Основной фон для контента между колоннами */
+}
+
+/*
+ * Важное правило:
+ * Для всех секций ВНУТРИ обертки добавляем боковые отступы,
+ * чтобы контент не залезал на фоновые колонны.
+ */
+.content-with-columns > section {
+    padding-left: var(--column-width);
+    padding-right: var(--column-width);
+}
+/* Отдельное правило для футера, если он тоже внутри */
+.content-with-columns > footer {
+    margin-left: var(--column-width);
+    margin-right: var(--column-width);
+}
+
+/* Адаптивность: убираем колонны на маленьких экранах */
+@media (max-width: 1200px) {
+    .content-with-columns {
+        background-image: none; /* Убираем фоновые картинки */
+        box-shadow: none; /* Убираем тень */
+    }
+
+    .content-with-columns > section {
+        padding-left: 5%; /* Возвращаем стандартные отступы */
+        padding-right: 5%;
+    }
+    .content-with-columns > footer {
+        margin-left: 0;
+        margin-right: 0;
+    }
 }
