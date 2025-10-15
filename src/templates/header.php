@@ -38,7 +38,7 @@ if (session_status() === PHP_SESSION_NONE) {
                 <li><a href="/about.php">About</a></li>
                 <li><a href="/games.php">Games</a></li>
                 <li><a href="/faq.php">FAQ's</a></li>
-                <li><a href="#">Social</a></li>
+                <li><a href="/careers.php">Careers</a></li>
                 <li><a href="#">Merch</a></li>
             </ul>
         </nav>

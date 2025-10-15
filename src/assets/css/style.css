@@ -450,3 +450,101 @@ a:hover {
         margin-right: 0;
     }
 }
+
+/*
+========================================
+Стили для страницы вакансий (Careers)
+========================================
+*/
+
+.careers-page {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    max-width: 900px; /* Ограничиваем ширину для лучшей читаемости */
+    margin: 0 auto;
+}
+
+.careers-page h1 {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.page-intro {
+    text-align: center;
+    color: var(--secondary-text-color);
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 4rem;
+}
+
+/* Стили для отдельного блока вакансии (похожи на новости) */
+.job-item {
+    background-color: var(--surface-color);
+    padding: 2.5rem;
+    margin-bottom: 2.5rem;
+    border-left: 4px solid var(--accent-color);
+}
+
+.job-item h3 {
+    font-family: var(--font-main);
+    color: #fff;
+    font-size: 1.8rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.job-item h4 {
+    color: var(--accent-color);
+    font-family: var(--font-main);
+    font-size: 1.2rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+}
+
+.job-item p {
+    color: var(--secondary-text-color);
+    line-height: 1.7;
+}
+
+.job-item ul {
+    list-style: none;
+    padding-left: 0;
+    color: var(--secondary-text-color);
+}
+
+.job-item ul li {
+    padding-left: 1.5rem;
+    position: relative;
+    margin-bottom: 0.5rem;
+}
+
+/* Делаем красивые маркеры-точки для списков */
+.job-item ul li::before {
+    content: '•';
+    color: var(--accent-color);
+    font-size: 1.5rem;
+    position: absolute;
+    left: 0;
+    top: -5px;
+}
+
+/* Кнопка "Подать заявку" */
+.btn-apply {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 0.8rem 2rem;
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+    font-family: var(--font-main);
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-apply:hover {
+    background-color: #ffc107;
+    color: #000;
+}
