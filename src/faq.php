@@ -4,13 +4,23 @@
     <h1>Frequently Asked Questions (FAQ)</h1>
     
     <div class="faq-item">
-        <h3>Question 1: What is this game about?</h3>
-        <p>Answer to the first question goes here. Provide detailed information.</p>
+        <h3>Question 1: What is Burden of Flame about?</h3>
+        <p>A survival horror with roguelike elements, Coop.</p>
     </div>
 
     <div class="faq-item">
-        <h3>Question 2: What platforms is the game available on?</h3>
-        <p>Answer to the second question goes here. List all supported platforms.</p>
+        <h3>Question 2: What platforms is the games available on?</h3>
+        <p>PC only.</p>
+    </div>
+
+    <div class="faq-item">
+        <h3>Question 3: When will Burden of Flame be released?</h3>
+        <p>We will inform you about this on the website.</p>
+    </div>
+
+    <div class="faq-item">
+        <h3>Question 4: How much Burden of Flame will cost?</h3>
+        <p>Around 6$.</p>
     </div>
 
     <!-- Больше вопросов и ответов по мере необходимости -->
