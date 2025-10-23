@@ -1,19 +1,23 @@
-/* Используем переменные для удобного управления цветами */
+/*
+========================================
+ОСНОВНЫЕ СТИЛИ И ПЕРЕМЕННЫЕ
+========================================
+*/
 :root {
-    --bg-color: #121212; /* Очень темный фон */
-    --surface-color: #1e1e1e; /* Цвет для карточек и панелей */
-    --primary-text-color: #e0e0e0; /* Основной светлый текст */
-    --secondary-text-color: #a0a0a0; /* Вторичный текст */
-    --accent-color: #d4a017; /* Акцентный цвет, как золото или огонь */
-    --font-main: 'MedievalSharp', serif; /* Наш "фэнтезийный" шрифт */
-    --content-bg-color: #1A1A1A; /* Фон для контента после слайдера */
+    --bg-color: #121212;
+    --surface-color: #1e1e1e;
+    --primary-text-color: #e0e0e0;
+    --secondary-text-color: #a0a0a0;
+    --accent-color: #d4a017;
+    --font-main: 'MedievalSharp', serif;
+    --content-bg-color: #1A1A1A;
+    --column-width: 80px;
 }
 
-/* Общие стили */
 body {
     background-color: var(--bg-color);
     color: var(--primary-text-color);
-    font-family: Arial, sans-serif; /* Обычный шрифт для простого текста */
+    font-family: Arial, sans-serif;
     margin: 0;
     line-height: 1.6;
 }
@@ -32,38 +36,41 @@ a:hover {
     color: #fff;
 }
 
-/* Стили для хэдера (меню) */
+/*
+========================================
+ФИНАЛЬНЫЕ И ИСПРАВЛЕННЫЕ СТИЛИ ДЛЯ ХЭДЕРА
+========================================
+*/
+
+/* --- 1. Главный контейнер хэдера и эффект при прокрутке --- */
+
 .main-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem 5%;
-    background-color: rgba(0, 0, 0, 0.5);
-    border-bottom: 1px solid var(--accent-color);
     position: sticky;
     top: 0;
     z-index: 1000;
-
-    /* Начальное, прозрачное состояние хэдера */
+    
+    /* НАЧАЛЬНОЕ СОСТОЯНИЕ: Полностью прозрачный фон и ПРОЗРАЧНАЯ ГРАНИЦА */
     background-color: transparent;
-    border-bottom: 1px solid transparent; /* Граница тоже прозрачная */
+    border-bottom: 1px solid transparent; /* Граница уже существует, но она невидима */
 
-    /* Плавный переход для фона и границы */
-    transition: background-color 0.4s ease, border-color 0.4s ease;
+    /* Плавный переход для всех свойств */
+    transition: background-color 0.4s ease, border-color 0.4s ease, backdrop-filter 0.4s ease;
 }
 
-/* Стиль хэдера при прокрутке (когда JS добавит класс .scrolled) */
 .main-header.scrolled {
-    /* Полупрозрачный фон */
-    background-color: rgba(18, 18, 18, 0.75); /* Используем наш --bg-color с прозрачностью */
-    
-    /* Эффект размытия "матового стекла" */
-    -webkit-backdrop-filter: blur(10px); /* Для Safari */
-    backdrop-filter: blur(10px);
-    
-    /* Возвращаем границу */
-    border-bottom: 1px solid var(--accent-color);
+    /* СОСТОЯНИЕ ПРИ ПРОКРУТКЕ */
+    background-color: rgba(18, 18, 18, 0.75); /* Полупрозрачный фон */
+    -webkit-backdrop-filter: blur(10px);      /* Размытие для Safari */
+    backdrop-filter: blur(10px);              /* Эффект матового стекла */
+    border-bottom-color: var(--accent-color);
 }
+
+
+/* --- 2. Остальные стили хэдера --- */
 
 .logo a {
     font-family: var(--font-main);
@@ -84,23 +91,103 @@ a:hover {
 
 .main-nav a {
     font-family: var(--font-main);
-    font-size: 1.6rem;
+    font-size: 2rem; /* Ваш большой размер шрифта сохранен */
 }
 
-/* Стили для главной секции (Hero Section) */
-.hero-section {
-    height: 80vh;
-    background: url('.jpg') no-repeat center center/cover; /* TODO: Картинку сюда */
+.header-right-panel {
     display: flex;
     align-items: center;
+}
+
+.lang-switcher {
+    display: flex;
+    gap: 1rem;
+}
+
+.lang-switcher a {
+    font-weight: bold;
+}
+
+.lang-switcher a.active {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+.auth-links {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding-left: 1.5rem;
+    margin-left: 1.5rem;
+    border-left: 1px solid var(--secondary-text-color);
+}
+
+.header-right-panel a {
+    color: var(--secondary-text-color);
+    text-decoration: none;
+    font-family: var(--font-main);
+    font-size: 1.3rem;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.header-right-panel a:not(.active):hover {
+    color: #fff;
+}
+
+/*
+========================================
+ГЛАВНАЯ СТРАНИЦА: СЛАЙДЕР И НОВОСТИ
+========================================
+*/
+
+/* --- Слайдер --- */
+.hero-slider {
+    width: 100%;
+    position: relative;
+}
+
+.hero-slider::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 150px;
+    background: linear-gradient(to top, var(--content-bg-color), transparent);
+    z-index: 1;
+}
+
+.swiper {
+    width: 100%;
+    height: 85vh;
+}
+
+.swiper-slide {
+    display: flex;
     justify-content: flex-start;
+    align-items: center;
     padding: 0 10%;
+    text-align: left;
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-content {
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+    max-width: 600px;
 }
 
 .hero-content h1 {
     font-size: 4rem;
     margin-bottom: 1rem;
+    color: #fff;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: var(--primary-text-color);
 }
 
 .btn-buy {
@@ -121,9 +208,42 @@ a:hover {
     color: #000;
 }
 
-/* Стили для секции новостей */
+.swiper-button-next, .swiper-button-prev {
+    color: var(--accent-color) !important;
+}
+
+.swiper-pagination-bullet-active {
+    background: var(--accent-color) !important;
+}
+
+/* --- Контент с боковыми "колоннами" --- */
+.content-with-columns {
+    box-shadow: 0 0 40px 10px rgba(0,0,0,0.6);
+    position: relative;
+    z-index: 2;
+    background-image: linear-gradient(to right, rgba(0,0,0,0.7), transparent), 
+                      linear-gradient(to left, rgba(0,0,0,0.7), transparent);
+    background-position: left top, right top;
+    background-repeat: no-repeat, no-repeat;
+    background-size: var(--column-width) 100%, var(--column-width) 100%; 
+    background-color: var(--content-bg-color);
+}
+
+.content-with-columns > section,
+.content-with-columns > div { /* Добавлено для страниц типа careers.php */
+    padding-left: var(--column-width);
+    padding-right: var(--column-width);
+}
+
+.content-with-columns > footer {
+    margin-left: var(--column-width);
+    margin-right: var(--column-width);
+}
+
+/* --- Секция новостей --- */
 .news-section {
-    padding: 4rem 10%;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
 }
 
 .news-section h2 {
@@ -144,324 +264,16 @@ a:hover {
     border-left: 3px solid var(--accent-color);
 }
 
-/* Стили для слайдера */
-.swiper {
-    width: 100%;
-    height: 85vh;
-
-
-    overflow: hidden; 
-}
-
-.swiper-slide {
-    width: 100%;
-    height: 100%;
-    margin: 0 !important; /* Убираем любые внешние отступы */
-    padding: 0 10%;      /* Внутренние отступы оставляем для контента */
-    box-sizing: border-box; /* Говорим браузеру включать padding в общую ширину */
-    /* -------------------------- */
-
-    /* Это стили для контента внутри слайда */
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    text-align: left;
-    
-    /* Стили для фона, которые у вас уже есть */
-    background-size: cover;
-    background-position: center;
-}
-
-.hero-content {
-    /* Добавляем тень для лучшей читаемости на любом фоне */
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
-    max-width: 600px; /* Ограничиваем ширину блока с текстом, чтобы он не растягивался */
-}
-
-.hero-content h1 {
-    font-size: 4rem;
-    margin-bottom: 1rem;
-    color: #fff; /* Можно явно задать белый цвет */
-}
-
-.hero-content p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-    color: var(--primary-text-color); /* Используем наш светлый цвет текста */
-}
-
-/* Стилизация кнопок и пагинации Swiper под нашу тему */
-.swiper-button-next, .swiper-button-prev {
-    color: var(--accent-color) !important;
-}
-
-.swiper-pagination-bullet-active {
-    background: var(--accent-color) !important;
-}
-
-/* --- Стили для блока авторизации в шапке --- */
-
-.auth-links {
-    display: flex;         /* Включаем Flexbox для красивого выравнивания */
-    align-items: center;   /* Выравниваем email и ссылки по центру по вертикали */
-    white-space: nowrap;   /* Запрещаем перенос текста на новую строку */
-}
-
-.auth-links .user-email {
-    color: var(--secondary-text-color); /* Используем более тусклый серый цвет для email */
-    margin-right: 1.5rem; /* <-- Вот главный отступ! Можете изменить значение */
-}
-
-/* 
-   Стили для ссылок Login/Register/Logout.
-   Мы добавляем отступ слева, чтобы был воздух между "Login" и "Register".
-*/
-.auth-links a {
-    margin-left: 1rem;
-}
-
-/* 
-   Убираем лишний отступ у самой первой ссылки,
-   чтобы она не была сдвинута относительно правого края
-*/
-.auth-links a:first-child {
-    margin-left: 0;
-}
-
-/* 
-   Убираем отступ у ссылки Logout, так как отступ уже есть
-   у элемента с email справа от него.
-*/
-.auth-links .user-email + a {
-    margin-left: 0;
-}
-
 /*
 ========================================
-ФИНАЛЬНЫЕ Стили для футера с разделением на 2 цвета
+СТРАНИЦА ВАКАНСИЙ (CAREERS)
 ========================================
 */
-
-/* Главный контейнер футера */
-.site-footer {
-    background-color: var(--bg-color); /* Основной темный фон */
-}
-
-/* Создаем сетку из двух колонок: левая и правая */
-.footer-grid {
-    display: grid;
-    /* Левая колонка занимает ~35%, правая - все остальное */
-    grid-template-columns: 35% 1fr; 
-    max-width: 1400px; /* Ограничиваем общую ширину */
-    margin: 0 auto;
-}
-
-/* Левая панель */
-.footer-left-panel {
-    padding: 4rem 3rem;
-}
-
-/* Правая панель получает свой фон */
-.footer-right-panel {
-    background-color: #1a1a1a; /* Светло-серый фон, как у Larian */
-    padding: 4rem 3rem;
-}
-
-/* Внутренняя сетка для "квадратиков" в правой панели */
-.right-panel-grid {
-    display: grid;
-    /* Делим на 4 равных колонки */
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
-    margin-bottom: 4rem; /* Отступ до копирайта */
-}
-
-/* Стили заголовков (сохраняем стиль Larian) */
-.footer-heading-large {
-    font-family: Arial, sans-serif;
-    font-size: 1rem;
-    font-weight: bold;
-    color: #fff;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin: 0 0 1.5rem 0;
-}
-.footer-heading-large a {
-    color: inherit;
-    text-decoration: none;
-}
-.footer-heading-large a:hover {
-    color: var(--accent-color);
-}
-.footer-heading-small {
-    font-family: Arial, sans-serif;
-    color: var(--secondary-text-color);
-    font-size: 0.9rem;
-    letter-spacing: 1px;
-    margin: 0 0 0.5rem 0;
-}
-/* Особый стиль для заголовка в левой панели */
-.footer-left-panel .footer-heading-large {
-    font-family: var(--font-main);
-    font-size: 1.8rem;
-    text-transform: none;
-    letter-spacing: normal;
-}
-
-/* Списки ссылок */
-.link-list, .social-links {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-.link-list li, .social-links li {
-    margin-bottom: 0.8rem;
-}
-.link-list li a, .social-links li a {
-    color: var(--secondary-text-color);
-    text-decoration: none;
-}
-.link-list li a:hover, .social-links li a:hover {
-    color: #fff;
-}
-.social-links {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-}
-.social-links i {
-    font-size: 1.5rem;
-    width: 30px;
-}
-
-/* Нижняя часть с копирайтом (теперь внутри правой панели) */
-.footer-bottom {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    border-top: 1px solid #333;
-    padding-top: 2rem;
-}
-.footer-logo img {
-    height: 60px;
-    opacity: 0.8;
-}
-.footer-copyright {
-    color: var(--secondary-text-color);
-    font-size: 0.9rem;
-}
-.footer-copyright a {
-    color: var(--primary-text-color);
-}
-
-/* Адаптивность */
-@media (max-width: 1100px) {
-    .right-panel-grid {
-        grid-template-columns: 1fr 1fr; /* 2x2 "квадратика" на планшетах */
-    }
-}
-@media (max-width: 768px) {
-    .footer-grid {
-        grid-template-columns: 1fr; /* Все встает в одну колонку */
-    }
-    .right-panel-grid {
-        grid-template-columns: 1fr 1fr; /* Оставляем 2 колонки для ссылок */
-    }
-}
-
-/*
-========================================
-НОВЫЕ Стили для боковых колонн (начинаются после слайдера)
-========================================
-*/
-
-/* Переменная для ширины колонн */
-:root {
-    --column-width: 80px; /* Делаем колонны более узкими */
-}
-
-/* Гарантируем, что слайдер всегда будет на 100% ширины */
-.hero-slider {
-    width: 100%;
-    position: relative;
-}
-
-.hero-slider::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 150px;
-    background: linear-gradient(to top, var(--content-bg-color), transparent);
-    z-index: 1;
-}
-
-/* обертка, которая будет содержать колонны как градиент */
-.content-with-columns {
-    box-shadow: 0 0 40px 10px rgba(0,0,0,0.6);
-    position: relative;
-    z-index: 2;
-    
-    /* 
-     * Используем градиенты
-     * Первый градиент - слева: от полупрозрачного черного к полностью прозрачному.
-     * Второй градиент - справа: то же самое, но в другую сторону.
-     */
-    background-image: linear-gradient(to right, rgba(0,0,0,0.7), transparent), 
-                      linear-gradient(to left, rgba(0,0,0,0.7), transparent);              
-    background-position: left top, right top; /* Позиция каждого градиента */
-    background-repeat: no-repeat, no-repeat; /* Градиенты не нужно повторять */
-    
-    /* Размер каждого градиента - равен ширине наших "колонн" */
-    background-size: var(--column-width) 100%, var(--column-width) 100%; 
-    
-    background-color: var(--bg-color); /* Основной фон для контента между колоннами */
-}
-
-/*
- * Важное правило:
- * Для всех секций ВНУТРИ обертки добавляем боковые отступы,
- * чтобы контент не залезал на фоновые колонны.
- */
-.content-with-columns > section {
-    padding-left: var(--column-width);
-    padding-right: var(--column-width);
-}
-/* Отдельное правило для футера, если он тоже внутри */
-.content-with-columns > footer {
-    margin-left: var(--column-width);
-    margin-right: var(--column-width);
-}
-
-/* Адаптивность: убираем колонны на маленьких экранах */
-@media (max-width: 1200px) {
-    .content-with-columns {
-        background-image: none; /* Убираем фоновые картинки */
-        box-shadow: none; /* Убираем тень */
-    }
-
-    .content-with-columns > section {
-        padding-left: 5%; /* Возвращаем стандартные отступы */
-        padding-right: 5%;
-    }
-    .content-with-columns > footer {
-        margin-left: 0;
-        margin-right: 0;
-    }
-}
-
-/*
-========================================
-Стили для страницы вакансий (Careers)
-========================================
-*/
-
 .careers-page {
     padding-top: 4rem;
     padding-bottom: 4rem;
-    max-width: 900px; /* Ограничиваем ширину для лучшей читаемости */
-    margin: 0 auto;
+    max-width: 900px;
+    margin: 0 auto; /* Центрируем, чтобы отступы были одинаковыми */
 }
 
 .careers-page h1 {
@@ -478,7 +290,6 @@ a:hover {
     margin-bottom: 4rem;
 }
 
-/* Стили для отдельного блока вакансии (похожи на новости) */
 .job-item {
     background-color: var(--surface-color);
     padding: 2.5rem;
@@ -520,7 +331,6 @@ a:hover {
     margin-bottom: 0.5rem;
 }
 
-/* Делаем красивые маркеры-точки для списков */
 .job-item ul li::before {
     content: '•';
     color: var(--accent-color);
@@ -530,7 +340,6 @@ a:hover {
     top: -5px;
 }
 
-/* Кнопка "Подать заявку" */
 .btn-apply {
     display: inline-block;
     margin-top: 2rem;
@@ -547,4 +356,160 @@ a:hover {
 .btn-apply:hover {
     background-color: #ffc107;
     color: #000;
+}
+
+/*
+========================================
+ФУТЕР (НИЖНИЙ КОЛОНТИТУЛ)
+========================================
+*/
+.site-footer {
+    background-color: var(--bg-color);
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 35% 1fr; 
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.footer-left-panel {
+    padding: 4rem 3rem;
+}
+
+.footer-right-panel {
+    background-color: #1a1a1a;
+    padding: 4rem 3rem;
+}
+
+.right-panel-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.footer-heading-large {
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0 0 1.5rem 0;
+}
+.footer-heading-large a {
+    color: inherit;
+    text-decoration: none;
+}
+.footer-heading-large a:hover {
+    color: var(--accent-color);
+}
+.footer-heading-small {
+    font-family: Arial, sans-serif;
+    color: var(--secondary-text-color);
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    margin: 0 0 0.5rem 0;
+}
+.footer-left-panel .footer-heading-large {
+    font-family: var(--font-main);
+    font-size: 1.8rem;
+    text-transform: none;
+    letter-spacing: normal;
+}
+
+.link-list, .social-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.link-list li, .social-links li {
+    margin-bottom: 0.8rem;
+}
+.link-list li a, .social-links li a {
+    color: var(--secondary-text-color);
+    text-decoration: none;
+}
+.link-list li a:hover, .social-links li a:hover {
+    color: #fff;
+}
+.social-links {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+.social-links i {
+    font-size: 1.5rem;
+    width: 30px;
+}
+
+.footer-bottom {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    border-top: 1px solid #333;
+    padding-top: 2rem;
+}
+.footer-logo img {
+    height: 60px;
+    opacity: 0.8;
+}
+.footer-copyright {
+    color: var(--secondary-text-color);
+    font-size: 0.9rem;
+}
+.footer-copyright a {
+    color: var(--primary-text-color);
+}
+
+/*
+========================================
+АДАПТИВНОСТЬ
+========================================
+*/
+@media (max-width: 1200px) {
+    .content-with-columns {
+        background-image: none;
+        box-shadow: none;
+    }
+    .content-with-columns > section,
+    .content-with-columns > div {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+    .content-with-columns > footer {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 1100px) {
+    .right-panel-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 900px) {
+    /* Добавляем адаптивность для навигации */
+    .main-nav {
+        display: none; /* Прячем основную навигацию */
+    }
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .news-container {
+        grid-template-columns: 1fr;
+    }
+    .right-panel-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }

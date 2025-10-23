@@ -34,24 +34,38 @@ if (session_status() === PHP_SESSION_NONE) {
         </div>
         <nav class="main-nav">
             <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/about.php">About</a></li>
-                <li><a href="/games.php">Games</a></li>
-                <li><a href="/faq.php">FAQ's</a></li>
-                <li><a href="/careers.php">Careers</a></li>
-                <li><a href="#">Merch</a></li>
+                <li><a href="/"><?php echo t('HEADER_HOME'); ?></a></li>
+                <li><a href="/about.php"><?php echo t('HEADER_ABOUT'); ?></a></li>
+                <li><a href="/games.php"><?php echo t('HEADER_GAMES'); ?></a></li>
+                <li><a href="/faq.php"><?php echo t('HEADER_FAQ'); ?></a></li>
+                <li><a href="/careers.php"><?php echo t('HEADER_CAREERS'); ?></a></li>
+                <li><a href="#"><?php echo t('HEADER_MERCH'); ?></a></li>
             </ul>
         </nav>
-        <div class="auth-links">
-            <?php if (isset($_SESSION['user_id'])): ?>
-                <!-- Если пользователь авторизован, показываем его email и кнопку выхода -->
-                <span class="user-email"><?php echo htmlspecialchars($_SESSION['user_email']); ?></span>
-                <a href="/logout.php" class="auth-link">Logout</a>
-            <?php else: ?>
-                <!-- Если пользователь гость, показываем кнопки входа и регистрации -->
-                <a href="/login.php" class="auth-link">Login</a>
-                <a href="/register.php" class="auth-link">Register</a>
-            <?php endif; ?>
-        </div>
+        <div class="header-right-panel">
+            
+            <!-- Переключатель языков -->
+            <div class="lang-switcher">
+                <a href="?lang=en" class="<?php echo $_SESSION['lang'] == 'en' ? 'active' : ''; ?>">EN</a>
+                <a href="?lang=ru" class="<?php echo $_SESSION['lang'] == 'ru' ? 'active' : ''; ?>">RU</a>
+            </div>
+
+            <!-- Ссылки для авторизации/пользователя -->
+            <div class="auth-links">
+                <?php if (isset($_SESSION['user_id'])): ?>
+                    <!-- Если пользователь авторизован -->
+                    <span class="user-email"><?php echo htmlspecialchars($_SESSION['user_email']); ?></span>
+                    <a href="/logout.php"><?php echo t('HEADER_LOGOUT'); ?></a>
+                <?php else: ?>
+                    <!-- Если пользователь гость -->
+                    <a href="/login.php"><?php echo t('HEADER_LOGIN'); ?></a>
+                    <a href="/register.php"><?php echo t('HEADER_REGISTER'); ?></a>
+                <?php endif; ?>
+            </div>
+
+            <script src="/assets/js/script.js"></script>
+            
+        </div> 
+
     </header>
     <main>

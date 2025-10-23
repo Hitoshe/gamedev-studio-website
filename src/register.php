@@ -1,3 +1,5 @@
+<?php require_once 'init.php'; ?>
+
 <?php
 // Подключаем шапку сайта
 include 'templates/header.php';

@@ -1,6 +1,4 @@
-</main>
-    
-    </div> <!-- КОНЕЦ БОКОВИНОК -->
+</div> <!-- КОНЕЦ .content-with-columns -->
 
 
     <!-- ФУТЕР С ВИЗУАЛЬНЫМ РАЗДЕЛЕНИЕМ -->
@@ -10,10 +8,11 @@
 
             <!-- ЛЕВАЯ СЕКЦИЯ (темный фон) -->
             <div class="footer-left-panel">
-                <h3 class="footer-heading-small">SOCIAL MEDIA</h3>
-                <h2 class="footer-heading-large">GET CLOSER TO US</h2>
-                <p>Follow us on our social media channels to join us on our journey and experience the adventure for yourself.</p>
+                <h3 class="footer-heading-small"><?php echo t('FOOTER_SOCIAL_MEDIA'); ?></h3>
+                <h2 class="footer-heading-large"><?php echo t('FOOTER_GET_CLOSER'); ?></h2>
+                <p><?php echo t('FOOTER_SOCIAL_TEXT'); ?></p>
                 <ul class="social-links">
+                    <!-- Названия брендов не переводим -->
                     <li><a href="#"><i class="fab fa-facebook-f"></i> Facebook</a></li>
                     <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
                     <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
@@ -29,8 +28,9 @@
                 <!-- Внутренняя сетка для "квадратиков" -->
                 <div class="right-panel-grid">
                     <div class="footer-column">
-                        <h2 class="footer-heading-large"><a href="/games.php">GAMES</a></h2>
+                        <h2 class="footer-heading-large"><a href="/games.php"><?php echo t('FOOTER_GAMES'); ?></a></h2>
                         <ul class="link-list">
+                            <!-- Названия игр не переводим -->
                             <li><a href="#">Burden of Flame</a></li>
                             <li><a href="#">Shadow of the Ronin</a></li>
                             <li><a href="#">Nitro Heist</a></li>
@@ -38,17 +38,18 @@
                     </div>
 
                     <div class="footer-column">
-                        <h2 class="footer-heading-large"><a href="/faq.php">FAQ</a></h2>
+                        <h2 class="footer-heading-large"><a href="/faq.php"><?php echo t('FOOTER_FAQ'); ?></a></h2>
                     </div>
 
                     <div class="footer-column">
-                        <h2 class="footer-heading-large"><a href="#">MERCH</a></h2>
+                        <h2 class="footer-heading-large"><a href="#"><?php echo t('FOOTER_MERCH'); ?></a></h2>
                     </div>
 
                     <div class="footer-column">
-                        <h2 class="footer-heading-large">CONTACT</h2>
+                        <h2 class="footer-heading-large"><?php echo t('FOOTER_CONTACT'); ?></h2>
                         <ul class="link-list">
-                            <li><a href="mailto:contact@yourstudio.com">contact@yourstudio.com</a></li>
+                            <!-- Email не переводим -->
+                            <li><a href="mailto:psoup.studio@gmail.com">psoup.studio@gmail.com</a></li>
                         </ul>
                     </div>
                 </div>
@@ -56,14 +57,19 @@
                 <!-- Нижняя часть с копирайтом теперь находится внутри правой секции -->
                 <div class="footer-bottom">
                     <div class="footer-logo">
-                        <img src="/assets/images/logo.png" alt="Studio Logo">
+                        <img src="/assets/images/PPS.png" alt="Studio Logo">
                     </div>
                     <div class="footer-copyright">
-                        <p>Copyrights © <?php echo date('Y'); ?> Studio Name. All rights reserved.</p>
                         <p>
-                            <a href="#">Cookies settings</a> | 
-                            <a href="#">Privacy policy</a> | 
-                            <a href="#">Fan content policy</a>
+                            <?php 
+                                // Заменяем плейсхолдер {year} на текущий год
+                                echo str_replace('{year}', date('Y'), t('FOOTER_COPYRIGHT')); 
+                            ?>
+                        </p>
+                        <p>
+                            <a href="#"><?php echo t('FOOTER_COOKIES'); ?></a> | 
+                            <a href="#"><?php echo t('FOOTER_PRIVACY'); ?></a> | 
+                            <a href="#"><?php echo t('FOOTER_FAN_CONTENT'); ?></a>
                         </p>
                     </div>
                 </div>
@@ -72,9 +78,12 @@
         </div> <!-- Конец .footer-grid -->
     </footer>
 
-    <!-- Swiper.js JS -->
+
+    <!-- Swiper.js JS (библиотека) ДОЛЖЕН ИДТИ ПЕРВЫМ -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <!-- Подключаем наш файл скриптов -->
+
+    <!-- Файл скриптов ПОСЛЕ него -->
     <script src="/assets/js/script.js"></script>
+
 </body>
 </html>

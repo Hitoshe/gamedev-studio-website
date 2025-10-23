@@ -1,3 +1,5 @@
+<?php require_once 'init.php'; ?>
+
 <?php
 // 1. НАЧИНАЕМ СЕССИЮ. ВСЕГДА В САМОМ ВЕРХУ.
 session_start();

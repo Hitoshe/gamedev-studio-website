@@ -1,3 +1,4 @@
+<?php require_once 'init.php'; ?>
 <?php include 'templates/header.php'; ?>
 
 <!-- Основной контейнер страницы вакансий -->
