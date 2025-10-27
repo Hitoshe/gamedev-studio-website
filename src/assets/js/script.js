@@ -18,7 +18,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-
     // --- Эффект "матового стекла" для хэдера ---
     const header = document.querySelector('.main-header');
     

@@ -466,10 +466,38 @@ a:hover {
 
 /*
 ========================================
-АДАПТИВНОСТЬ
+АДАПТИВНОСТЬ (Версия без бургера)
 ========================================
 */
-@media (max-width: 1200px) {
+
+/* --- Стили для планшетов (до 1100px) --- */
+@media (max-width: 1100px) {
+    .right-panel-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    .main-header {
+        /* Уменьшаем горизонтальные отступы, чтобы больше влезло */
+        padding: 1rem 3%;
+    }
+    .main-nav ul li {
+        /* Уменьшаем отступы между пунктами меню */
+        margin-left: 1rem;
+    }
+    .main-nav a {
+        /* Уменьшаем шрифт в меню */
+        font-size: 1.5rem;
+    }
+}
+
+
+/* --- Стили для планшетов и телефонов (до 900px) --- */
+@media (max-width: 900px) {
+    /* --- Прячем основное меню --- */
+    .main-nav {
+        display: none; 
+    }
+
+    /* --- Остальные стили для этого разрешения --- */
     .content-with-columns {
         background-image: none;
         box-shadow: none;
@@ -483,30 +511,52 @@ a:hover {
         margin-left: 0;
         margin-right: 0;
     }
-}
-
-@media (max-width: 1100px) {
-    .right-panel-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-
-@media (max-width: 900px) {
-    /* Добавляем адаптивность для навигации */
-    .main-nav {
-        display: none; /* Прячем основную навигацию */
-    }
     .footer-grid {
         grid-template-columns: 1fr;
     }
 }
 
+
+/* --- Стили только для телефонов (до 768px) --- */
 @media (max-width: 768px) {
+    /* --- Настраиваем хэдер для маленьких экранов --- */
+    .main-header {
+        padding: 0.8rem 5%;
+    }
+    .logo a {
+        font-size: 1.3rem; /* Делаем логотип еще меньше */
+    }
+    .header-right-panel a {
+        font-size: 0.9rem; /* Уменьшаем шрифт Login/Register */
+    }
+    .lang-switcher, .auth-links {
+        gap: 0.5rem;
+        margin-left: 0.8rem;
+        padding-left: 0.8rem;
+    }
+    
+    /* --- Уменьшаем размеры в Слайдере --- */
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    .hero-content p {
+        font-size: 1rem;
+    }
+    .swiper {
+        height: 70vh;
+    }
+
+    /* --- Уменьшаем заголовки на страницах --- */
+    .news-section h2, .careers-page h1, .page-container h1 {
+        font-size: 2.2rem;
+    }
+
+    /* --- Перестраиваем новости и футер в одну колонку --- */
     .news-container {
         grid-template-columns: 1fr;
     }
     .right-panel-grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
     }
     .footer-bottom {
         flex-direction: column;

@@ -42,6 +42,7 @@ if (session_status() === PHP_SESSION_NONE) {
                 <li><a href="#"><?php echo t('HEADER_MERCH'); ?></a></li>
             </ul>
         </nav>
+
         <div class="header-right-panel">
             
             <!-- Переключатель языков -->
