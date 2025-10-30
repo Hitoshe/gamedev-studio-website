@@ -95,5 +95,20 @@ return [
     'JOB_SOUND_Q1' => 'Demonstrated experience in music composition and sound design for games or film.',
     'JOB_SOUND_Q2' => 'Proficiency with DAWs (e.g., Reaper, Ableton Live) and audio middleware (e.g., FMOD, Wwise).',
     'JOB_SOUND_Q3' => 'A strong portfolio of relevant work is required.',
-    'JOB_SOUND_Q4' => 'Ability to create a wide range of audio assets, from subtle ambiences to powerful combat sounds.'
+    'JOB_SOUND_Q4' => 'Ability to create a wide range of audio assets, from subtle ambiences to powerful combat sounds.',
+
+    // Registration Page
+    'REGISTER_INVALID_EMAIL' => 'Invalid email format.',
+    'REGISTER_PASSWORD_TOO_SHORT' => 'Password must be at least 6 characters long.',
+    'REGISTER_EMAIL_EXISTS' => 'This email is already registered.',
+    'REGISTER_DB_ERROR' => 'Registration error:',
+    'REGISTER_SUCCESS_MESSAGE' => 'Registration successful! Please check your email to verify your account.',
+    'REGISTER_EMAIL_ERROR' => 'Account created, but the confirmation email could not be sent. Mailer Error:',
+    'REGISTER_EMAIL_SUBJECT' => 'Confirm your registration on PineappleSoup',
+    'REGISTER_EMAIL_BODY_HTML' => 'Hello!<br><br>Thank you for registering. Please confirm your email by clicking the link below:',
+    'REGISTER_EMAIL_BODY_TEXT' => 'Hello! Thank you for registering. Please confirm your email by copying this link into your browser: ',
+
+    // Login Page
+    'LOGIN_ACCOUNT_NOT_VERIFIED' => 'Your account is not verified. Please check your email.',
+    'LOGIN_INVALID_CREDENTIALS' => 'Invalid email or password.',
 ];

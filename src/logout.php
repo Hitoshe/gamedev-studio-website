@@ -1,19 +1,15 @@
 <?php
-session_start();
+// Подключаем наш init.php. Он сам позаботится о запуске сессии.
+require_once 'init.php';
 
-// Уничтожаем все данные сессии
-$_SESSION = array();
+// Очищаем все данные сессии (хорошая практика)
+$_SESSION = [];
 
-if (ini_get("session.use_cookies")) {
-    $params = session_get_cookie_params();
-    setcookie(session_name(), '', time() - 42000,
-        $params["path"], $params["domain"],
-        $params["secure"], $params["httponly"]
-    );
-}
-
+// Уничтожаем сессию
+// Теперь эта функция сработает, так как init.php уже запустил сессию
 session_destroy();
 
-// Перенаправляем на главную страницу
-header('Location: /');
-exit();
+// Перенаправляем пользователя на главную страницу
+// Используем /index.php для большей надежности
+header('Location: /index.php');
+exit(); // Завершаем выполнение скрипта

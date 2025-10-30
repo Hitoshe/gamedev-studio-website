@@ -1,13 +1,20 @@
-<?php require_once 'init.php'; ?>
-
 <?php
+// Подключаем init.php и автозагрузчик Composer для PHPMailer
+require_once 'init.php';
+require_once __DIR__ . '/vendor/autoload.php';
+
+// Используем классы из PHPMailer
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
 // Подключаем шапку сайта
 include 'templates/header.php';
 
-// Переменная для хранения сообщений (успех или ошибка)
+// Переменные для хранения сообщений
 $message = '';
+$message_type = 'error'; // Тип сообщения: 'error' или 'success'
 
-// Проверяем, была ли отправлена форма (метод POST)
+// Проверяем, была ли отправлена форма
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Подключаемся к БД
     require 'db_connect.php';
@@ -16,38 +23,66 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    // --- Простая валидация ---
-    // В реальном проекте валидация должна быть гораздо серьезнее!
+    // Валидация
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $message = "Неверный формат email.";
+        $message = t('REGISTER_INVALID_EMAIL');
     } elseif (strlen($password) < 6) {
-        $message = "Пароль должен быть не менее 6 символов.";
+        $message = t('REGISTER_PASSWORD_TOO_SHORT');
     } else {
-        // Хешируем пароль - НИКОГДА не храните пароли в открытом виде!
-        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-
         try {
-            // Подготавливаем SQL-запрос для вставки нового пользователя
-            // Сначала создадим таблицу, если ее нет
-            $pdo->exec("CREATE TABLE IF NOT EXISTS users (
-                id SERIAL PRIMARY KEY,
-                email VARCHAR(255) UNIQUE NOT NULL,
-                password VARCHAR(255) NOT NULL,
-                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-            )");
+            // Обновляем структуру таблицы, добавляя новые поля, если их нет
+            $pdo->exec("ALTER TABLE users ADD COLUMN IF NOT EXISTS is_active BOOLEAN DEFAULT FALSE");
+            $pdo->exec("ALTER TABLE users ADD COLUMN IF NOT EXISTS verification_token VARCHAR(255) NULL");
 
-            $sql = "INSERT INTO users (email, password) VALUES (?, ?)";
+            // Генерируем уникальный токен и хешируем пароль
+            $verification_token = bin2hex(random_bytes(32));
+            $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+            
+            // Вставляем нового пользователя со статусом is_active = false
+            $sql = "INSERT INTO users (email, password, verification_token, is_active) VALUES (?, ?, ?, FALSE)";
             $stmt = $pdo->prepare($sql);
-            $stmt->execute([$email, $hashed_password]);
+            $stmt->execute([$email, $hashed_password, $verification_token]);
 
-            $message = "Регистрация прошла успешно!";
+            // --- Отправка Email с подтверждением ---
+            $mail = new PHPMailer(true);
+            try {
+                // Настройки сервера Gmail
+                $mail->isSMTP();
+                $mail->Host = 'smtp.gmail.com';
+                $mail->SMTPAuth = true;
+                $mail->Username = 'dragfiredragon4@gmail.com'; // <-- ЗАМЕНИТЕ НА ВАШ GMAIL
+                $mail->Password = 'ivvb quhk ltuz aiyv'; // <-- ЗАМЕНИТЕ НА ВАШ 16-ЗНАЧНЫЙ ПАРОЛЬ ПРИЛОЖЕНИЯ
+                $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+                $mail->Port = 587;
+                $mail->CharSet = 'UTF-8';
+
+                // Отправитель и получатель
+                $mail->setFrom('your.email@gmail.com', 'PineappleSoup Studio');
+                $mail->addAddress($email);
+
+                // Контент письма
+                $verification_link = "http://localhost:8080/verify.php?token=" . $verification_token;
+                $mail->isHTML(true);
+                $mail->Subject = t('REGISTER_EMAIL_SUBJECT');
+                $mail->Body    = t('REGISTER_EMAIL_BODY_HTML') . "<br><a href='{$verification_link}'>{$verification_link}</a>";
+                $mail->AltBody = t('REGISTER_EMAIL_BODY_TEXT') . $verification_link;
+
+                $mail->send();
+
+                $message = t('REGISTER_SUCCESS_MESSAGE');
+                $message_type = 'success';
+
+            } catch (Exception $e) {
+                // Если письмо не отправилось, сообщаем об этом
+                $message = t('REGISTER_EMAIL_ERROR') . " {$mail->ErrorInfo}";
+            }
 
         } catch (PDOException $e) {
-            // Проверяем, если ошибка связана с дубликатом email
+            // Если email уже существует
             if ($e->getCode() == 23505) {
-                $message = "Этот email уже зарегистрирован.";
+                $message = t('REGISTER_EMAIL_EXISTS');
             } else {
-                $message = "Ошибка регистрации: " . $e->getMessage();
+                $message = t('REGISTER_DB_ERROR') . " " . $e->getMessage();
             }
         }
     }
@@ -56,10 +91,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <!-- HTML форма для регистрации -->
 <div class="form-container">
-    <h2>Registration</h2>
+    <h2><?php echo t('HEADER_REGISTER'); ?></h2>
     
     <?php if ($message): ?>
-        <p class="message"><?php echo $message; ?></p>
+        <p class="message <?php echo $message_type; ?>"><?php echo $message; ?></p>
     <?php endif; ?>
 
     <form action="register.php" method="POST">
@@ -71,42 +106,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
         </div>
-        <button type="submit" class="btn-buy">Register</button>
+        <button type="submit" class="btn-buy"><?php echo t('HEADER_REGISTER'); ?></button>
     </form>
 </div>
 
 <style>
-/* Простые стили для формы, можно вынести в style.css */
-.form-container {
-    max-width: 500px;
-    margin: 5rem auto;
-    padding: 2rem;
-    background-color: var(--surface-color);
-    border-radius: 5px;
-}
-.form-group {
-    margin-bottom: 1.5rem;
-}
-.form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-family: var(--font-main);
-}
-.form-group input {
-    width: 100%;
-    padding: 0.8rem;
-    background-color: var(--bg-color);
-    border: 1px solid var(--secondary-text-color);
-    color: var(--primary-text-color);
-    border-radius: 3px;
-}
-.message {
-    padding: 1rem;
-    background-color: #5a2a2a;
-    border: 1px solid #c83030;
-    margin-bottom: 1rem;
-    text-align: center;
-}
+/* Стили для формы и сообщений */
+.form-container { max-width: 500px; margin: 5rem auto; padding: 2rem; background-color: var(--surface-color); border-radius: 5px; }
+.form-group { margin-bottom: 1.5rem; }
+.form-group label { display: block; margin-bottom: 0.5rem; font-family: var(--font-main); }
+.form-group input { width: 100%; padding: 0.8rem; background-color: var(--bg-color); border: 1px solid var(--secondary-text-color); color: var(--primary-text-color); border-radius: 3px; }
+.message { padding: 1rem; margin-bottom: 1rem; text-align: center; border-radius: 4px; }
+.message.error { background-color: #5a2a2a; border: 1px solid #c83030; }
+.message.success { background-color: #2a5a3b; border: 1px solid #30c86b; }
 </style>
 
 <?php include 'templates/footer.php'; ?>
