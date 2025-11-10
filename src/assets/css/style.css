@@ -628,3 +628,50 @@ a:hover {
         flex-direction: column;
     }
 }
+
+ /*
+========================================
+СТРАНИЦА "ИГРЫ" (GAMES)
+========================================
+*/
+.game-entry {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 5rem;
+    background-color: var(--surface-color);
+    padding: 1.5rem;
+    border-left: 4px solid var(--accent-color);
+}
+.game-gallery {
+    flex: 1.5; /* Картинка занимает больше места */
+}
+.game-gallery img {
+    width: 100%;
+    display: block;
+}
+.game-info {
+    flex: 1; /* Текст занимает меньше места */
+    display: flex;
+    flex-direction: column;
+}
+.game-info h2 {
+    font-size: 2.5rem;
+    margin-top: 0;
+}
+.game-info p {
+    color: var(--secondary-text-color);
+    flex-grow: 1; /* Занимает все доступное пространство, прижимая кнопку вниз */
+}
+.steam-link {
+    text-align: center;
+}
+.steam-link i {
+    margin-right: 0.5rem;
+}
+
+/* Адаптивность для "Игр" */
+@media (max-width: 768px) {
+    .game-entry {
+        flex-direction: column;
+    }
+}
