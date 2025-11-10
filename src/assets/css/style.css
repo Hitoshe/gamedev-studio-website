@@ -570,3 +570,61 @@ a:hover {
         align-items: flex-start;
     }
 }
+
+ /*
+========================================
+СТРАНИЦА "О НАС" (ABOUT)
+========================================
+*/
+.about-intro {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    margin-bottom: 5rem;
+}
+.about-intro-image {
+    flex-basis: 50%;
+}
+.about-intro-image img {
+    width: 100%;
+    border-radius: 5px;
+}
+.about-intro-text {
+    flex-basis: 50%;
+}
+.team-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+}
+.team-grid {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+.team-member {
+    text-align: center;
+}
+.team-member-photo img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%; /* Круглые фото */
+    object-fit: cover;
+    border: 3px solid var(--accent-color);
+    margin-bottom: 1rem;
+}
+.team-member h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+}
+.team-member-role {
+    color: var(--secondary-text-color);
+}
+
+/* Адаптивность для "О нас" */
+@media (max-width: 768px) {
+    .about-intro {
+        flex-direction: column;
+    }
+}
