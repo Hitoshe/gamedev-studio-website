@@ -112,7 +112,7 @@ return [
     'LOGIN_ACCOUNT_NOT_VERIFIED' => 'Your account is not verified. Please check your email.',
     'LOGIN_INVALID_CREDENTIALS' => 'Invalid email or password.',
 
-      // About Page
+    // About Page
     'ABOUT_TITLE' => 'About Us',
     'ABOUT_INTRO_HEADING' => 'Forging Worlds from Code and Dreams',
     'ABOUT_INTRO_TEXT' => 'PineappleSoup is an independent game development studio fueled by a passion for creating immersive and unforgettable gaming experiences. We believe in the power of storytelling, innovative gameplay, and artistic excellence. Our small, dedicated team works tirelessly to bring unique worlds to life.',
@@ -120,4 +120,10 @@ return [
     'ABOUT_TEAM_MEMBER_1_ROLE' => 'Founder & Lead Programmer',
     'ABOUT_TEAM_MEMBER_2_ROLE' => 'Lead Artist & Game Designer',
 
+    // Games Page
+    'GAMES_TITLE' => 'Our Games',
+    'GAME_BOF_DESC' => 'A cooperative survival horror with roguelike elements. Descend into procedural dungeons where the flame is your only ally against the encroaching darkness. Every run is a new nightmare.',
+    'GAME_NH_DESC' => 'An adrenaline-fueled arcade racer set in neon-drenched cityscapes. Customize your ride, master the drift, and dominate the asphalt in high-speed illegal races. The night streets are your empire.',
+    'GAME_SOTR_DESC' => 'A challenging soulslike action RPG set in a demonic, fallen shogunate. Your blade is an extension of your soul. Master a punishing combat system, defy mythical beasts, and seek redemption.',
+    'GAME_VISIT_STEAM' => 'Visit on Steam',
 ];
