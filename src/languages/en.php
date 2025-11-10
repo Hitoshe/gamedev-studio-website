@@ -111,4 +111,13 @@ return [
     // Login Page
     'LOGIN_ACCOUNT_NOT_VERIFIED' => 'Your account is not verified. Please check your email.',
     'LOGIN_INVALID_CREDENTIALS' => 'Invalid email or password.',
+
+      // About Page
+    'ABOUT_TITLE' => 'About Us',
+    'ABOUT_INTRO_HEADING' => 'Forging Worlds from Code and Dreams',
+    'ABOUT_INTRO_TEXT' => 'PineappleSoup is an independent game development studio fueled by a passion for creating immersive and unforgettable gaming experiences. We believe in the power of storytelling, innovative gameplay, and artistic excellence. Our small, dedicated team works tirelessly to bring unique worlds to life.',
+    'ABOUT_TEAM_HEADING' => 'Meet the Team',
+    'ABOUT_TEAM_MEMBER_1_ROLE' => 'Founder & Lead Programmer',
+    'ABOUT_TEAM_MEMBER_2_ROLE' => 'Lead Artist & Game Designer',
+
 ];
