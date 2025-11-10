@@ -29,7 +29,7 @@
                         <!-- Заглушка для фото. -->
                         <img src="https://via.placeholder.com/250" alt="Team Member 1 Photo">
                     </div>
-                    <h3>Имя Фамилия</h3>
+                    <h3><?php echo t('ABOUT_TEAM_MEMBER_1'); ?></p></h3>
                     <p class="team-member-role"><?php echo t('ABOUT_TEAM_MEMBER_1_ROLE'); ?></p>
                 </div>
 
@@ -38,7 +38,7 @@
                         <!-- Заглушка для фото. -->
                         <img src="https://via.placeholder.com/250" alt="Team Member 2 Photo">
                     </div>
-                    <h3>Имя Фамилия Друга</h3>
+                    <h3><?php echo t('ABOUT_TEAM_MEMBER_2'); ?></p></h3>
                     <p class="team-member-role"><?php echo t('ABOUT_TEAM_MEMBER_2_ROLE'); ?></p>
                 </div>
 

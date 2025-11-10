@@ -119,6 +119,8 @@ return [
     'ABOUT_TEAM_HEADING' => 'Наша Команда',
     'ABOUT_TEAM_MEMBER_1_ROLE' => 'Основатель и Ведущий программист',
     'ABOUT_TEAM_MEMBER_2_ROLE' => 'Ведущий художник и Геймдизайнер',
+    'ABOUT_TEAM_MEMBER_1' => 'Вадим Поплавский',
+    'ABOUT_TEAM_MEMBER_2' => 'Иван Мартинович',
 
     // Games Page
     'GAMES_TITLE' => 'Наши Игры',

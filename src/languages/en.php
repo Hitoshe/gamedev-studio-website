@@ -118,7 +118,9 @@ return [
     'ABOUT_INTRO_TEXT' => 'PineappleSoup is an independent game development studio fueled by a passion for creating immersive and unforgettable gaming experiences. We believe in the power of storytelling, innovative gameplay, and artistic excellence. Our small, dedicated team works tirelessly to bring unique worlds to life.',
     'ABOUT_TEAM_HEADING' => 'Meet the Team',
     'ABOUT_TEAM_MEMBER_1_ROLE' => 'Founder & Lead Programmer',
-    'ABOUT_TEAM_MEMBER_2_ROLE' => 'Lead Artist & Game Designer',
+    'ABOUT_TEAM_MEMBER_2_ROLE' => 'Cofounder & Lead Programmer',
+    'ABOUT_TEAM_MEMBER_1' => 'Vadim Poplavsky',
+    'ABOUT_TEAM_MEMBER_2' => 'Ivan Martinovich',
 
     // Games Page
     'GAMES_TITLE' => 'Our Games',
