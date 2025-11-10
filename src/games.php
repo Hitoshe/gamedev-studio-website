@@ -1,4 +1,4 @@
- <?php require_once 'init.php'; ?>
+<?php require_once 'init.php'; ?>
 <?php include 'templates/header.php'; ?>
 
 <!-- Обертка для боковых колонн -->
