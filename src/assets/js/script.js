@@ -1,37 +1,58 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-    // --- Инициализация слайдера Swiper (с защитой от ошибок) ---
-    const swiperElement = document.querySelector('.swiper');
+    // --- ИНИЦИАЛИЗАЦИЯ ВСЕХ СЛАЙДЕРОВ ---
 
-    if (swiperElement) {
-        // Создаем переменную swiper ТОЛЬКО ОДИН РАЗ
-        const swiper = new Swiper('.swiper', {
-            loop: true,
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-        });
-    }
+    // 1. Главный слайдер
+    new Swiper('.hero-slider .swiper', {
+        loop: true,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.hero-slider .swiper-button-next',
+            prevEl: '.hero-slider .swiper-button-prev',
+        },
+    });
 
-    // --- Эффект "матового стекла" для хэдера ---
+    // 2. Вложенные слайдеры
+    new Swiper('.swiper-bof', {
+        loop: true,
+        nested: true, // <-- ГЛАВНОЕ ИСПРАВЛЕНИЕ
+        navigation: {
+            nextEl: '.swiper-bof .swiper-button-next',
+            prevEl: '.swiper-bof .swiper-button-prev',
+        },
+    });
+
+    new Swiper('.swiper-nh', {
+        loop: true,
+        nested: true, // <-- ГЛАВНОЕ ИСПРАВЛЕНИЕ
+        navigation: {
+            nextEl: '.swiper-nh .swiper-button-next',
+            prevEl: '.swiper-nh .swiper-button-prev',
+        },
+    });
+
+    new Swiper('.swiper-sotr', {
+        loop: true,
+        nested: true, // <-- ГЛАВНОЕ ИСПРАВЛЕНИЕ
+        navigation: {
+            nextEl: '.swiper-sotr .swiper-button-next',
+            prevEl: '.swiper-sotr .swiper-button-prev',
+        },
+    });
+
+    // --- ЭФФЕКТ "МАТОВОГО СТЕКЛА" ДЛЯ ХЭДЕРА ---
     const header = document.querySelector('.main-header');
-    
     const handleHeaderScroll = () => {
-        if (!header) {
-            return;
-        }
+        if (!header) return;
         if (window.scrollY > 50) {
             header.classList.add('scrolled');
         } else {
             header.classList.remove('scrolled');
         }
     };
-
     window.addEventListener('scroll', handleHeaderScroll);
-    handleHeaderScroll(); // Проверка при первой загрузке
+    handleHeaderScroll();
 });

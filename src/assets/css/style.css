@@ -38,7 +38,7 @@ a:hover {
 
 /*
 ========================================
-ФИНАЛЬНЫЕ И ИСПРАВЛЕННЫЕ СТИЛИ ДЛЯ ХЭДЕРА
+СТИЛИ ДЛЯ ХЭДЕРА
 ========================================
 */
 
@@ -141,7 +141,7 @@ a:hover {
 ========================================
 */
 
-/* --- Слайдер --- */
+/* --- Общие настройки для секции слайдера --- */
 .hero-slider {
     width: 100%;
     position: relative;
@@ -158,52 +158,59 @@ a:hover {
     z-index: 1;
 }
 
-.swiper {
+/* --- Настройки ТОЛЬКО для ГЛАВНОГО Swiper-контейнера --- */
+.hero-slider > .swiper {
     width: 100%;
     height: 85vh;
 }
 
-.swiper-slide {
-    /* === ДОБАВЛЕННЫЕ ПРАВИЛА ДЛЯ ИСПРАВЛЕНИЯ === */
+/* --- Стили ТОЛЬКО для слайдов ГЛАВНОГО слайдера --- */
+.hero-slider > .swiper > .swiper-wrapper > .swiper-slide {
     width: 100%;
     height: 100%;
     margin: 0 !important;
     box-sizing: border-box;
-    /* ========================================= */
-
     display: flex;
-    justify-content: flex-start;
     align-items: center;
-    padding: 0 10%;
-    text-align: left;
+    padding: 0 5%; /* Уменьшаем боковые отступы */
     background-size: cover;
     background-position: center;
 }
 
+/* --- Сетка из двух колонок внутри главного слайда --- */
+.slide-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr; 
+    gap: 3rem;
+    width: 100%;
+    align-items: center;
+}
+
+/* --- Левая колонка с текстом --- */
 .hero-content {
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
-    max-width: 600px;
 }
 
 .hero-content h1 {
-    font-size: 4rem;
+    font-size: 3rem;
     margin-bottom: 1rem;
     color: #fff;
 }
 
 .hero-content p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
     color: var(--primary-text-color);
+    max-width: 500px;
 }
 
 .btn-buy {
     display: inline-block;
-    padding: 1rem 2.5rem;
+    padding: 0.8rem 2rem;
     background-color: var(--accent-color);
     color: var(--bg-color);
     font-family: var(--font-main);
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 700;
     border: none;
     cursor: pointer;
@@ -215,15 +222,64 @@ a:hover {
     color: #000;
 }
 
-.swiper-button-next, .swiper-button-prev {
+/* --- Правая колонка с медиа-слайдером --- */
+.media-slider {
+    width: 100%;
+}
+
+.swiper-nested {
+    width: 100%;
+    aspect-ratio: 16 / 9; 
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+/* --- Стили ТОЛЬКО для слайдов ВЛОЖЕННОГО слайдера --- */
+.swiper-nested .swiper-slide {
+    padding: 0;
+    background: transparent;
+}
+
+.swiper-nested .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* --- Кнопки и пагинация --- */
+
+/* Кнопки для ГЛАВНОГО слайдера */
+.hero-slider > .swiper > .swiper-button-next,
+.hero-slider > .swiper > .swiper-button-prev {
     color: var(--accent-color) !important;
 }
 
-.swiper-pagination-bullet-active {
+/* Пагинация для ГЛАВНОГО слайдера */
+.hero-slider > .swiper > .swiper-pagination-bullet-active {
     background: var(--accent-color) !important;
 }
 
+/* Кнопки для ВЛОЖЕННЫХ слайдеров */
+.swiper-nested .swiper-button-next,
+.swiper-nested .swiper-button-prev {
+    --swiper-navigation-size: 24px;
+    color: #fff;
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    transition: background-color 0.3s ease;
+}
+
+.swiper-nested .swiper-button-next:hover,
+.swiper-nested .swiper-button-prev:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+
 /* --- Контент с боковыми "колоннами" --- */
+/* (Этот блок остался без изменений) */
 .content-with-columns {
     box-shadow: 0 0 40px 10px rgba(0,0,0,0.6);
     position: relative;
@@ -237,7 +293,7 @@ a:hover {
 }
 
 .content-with-columns > section,
-.content-with-columns > div { /* Добавлено для страниц типа careers.php */
+.content-with-columns > div {
     padding-left: var(--column-width);
     padding-right: var(--column-width);
 }
@@ -247,7 +303,9 @@ a:hover {
     margin-right: var(--column-width);
 }
 
+
 /* --- Секция новостей --- */
+/* (Этот блок остался без изменений) */
 .news-section {
     padding-top: 4rem;
     padding-bottom: 4rem;
@@ -269,6 +327,81 @@ a:hover {
     background-color: var(--surface-color);
     padding: 1.5rem;
     border-left: 3px solid var(--accent-color);
+}
+
+/*
+========================================
+СТИЛИ ДЛЯ УЛУЧШЕННОГО СЛАЙДЕРА (НОВЫЙ БЛОК)
+========================================
+*/
+
+/* --- Сетка внутри главного слайда --- */
+.slide-grid {
+    display: grid;
+    /* Левая колонка чуть шире */
+    grid-template-columns: 1.2fr 1fr; 
+    gap: 3rem; /* Увеличиваем расстояние между колонками */
+    width: 100%;
+    align-items: center;
+}
+
+/* --- Левая колонка с текстом --- */
+.hero-content {
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+.hero-content h1 {
+    font-size: 3rem; /* Уменьшаем заголовок */
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.hero-content p {
+    font-size: 1.1rem; /* Уменьшаем текст */
+    margin-bottom: 1.5rem;
+    color: var(--primary-text-color);
+    max-width: 500px; /* Ограничиваем ширину, чтобы текст не был слишком длинным */
+}
+
+/* --- Правая колонка с медиа --- */
+.media-slider {
+    width: 100%;
+    height: 280px; /* Уменьшаем высоту слайдера скриншотов */
+}
+
+/* --- Стили для вложенного слайдера Swiper --- */
+.swiper-nested {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+.swiper-nested .swiper-slide {
+    padding: 0; /* Убираем лишние отступы у вложенных слайдов */
+    display: block;
+}
+
+.swiper-nested .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.swiper-nested .swiper-button-next,
+.swiper-nested .swiper-button-prev {
+    --swiper-navigation-size: 24px;
+    color: #fff;
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    transition: background-color 0.3s ease;
+}
+.swiper-nested .swiper-button-next:hover,
+.swiper-nested .swiper-button-prev:hover {
+    background-color: rgba(0,0,0,0.8);
 }
 
 /*
@@ -629,11 +762,25 @@ a:hover {
     }
 }
 
- /*
+/*
 ========================================
 СТРАНИЦА "ИГРЫ" (GAMES)
 ========================================
 */
+
+/* --- Главный контейнер и заголовок --- */
+.games-page {
+    padding-top: 2rem;    
+    padding-bottom: 5rem;
+}
+
+.games-page h1 {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 3rem;
+}
+
+/* --- Блок с отдельной игрой --- */
 .game-entry {
     display: flex;
     gap: 2rem;
@@ -641,16 +788,32 @@ a:hover {
     background-color: var(--surface-color);
     padding: 1.5rem;
     border-left: 4px solid var(--accent-color);
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
 }
+
+/* Последнему элементу убираем нижний отступ, чтобы он был ближе к футеру */
+.game-entry:last-child {
+    margin-bottom: 0;
+}
+
+/* --- Галерея (картинка) --- */
 .game-gallery {
-    flex: 1.5; /* Картинка занимает больше места */
+    flex: 1.5;
 }
 .game-gallery img {
     width: 100%;
     display: block;
+    border-radius: 4px;
 }
+
+/* --- Информация об игре (текст) --- */
 .game-info {
-    flex: 1; /* Текст занимает меньше места */
+    flex: 1;
     display: flex;
     flex-direction: column;
 }
@@ -660,7 +823,7 @@ a:hover {
 }
 .game-info p {
     color: var(--secondary-text-color);
-    flex-grow: 1; /* Занимает все доступное пространство, прижимая кнопку вниз */
+    flex-grow: 1;
 }
 .steam-link {
     text-align: center;
@@ -669,9 +832,10 @@ a:hover {
     margin-right: 0.5rem;
 }
 
-/* Адаптивность для "Игр" */
+/* --- Адаптивность --- */
 @media (max-width: 768px) {
     .game-entry {
         flex-direction: column;
     }
 }
+
