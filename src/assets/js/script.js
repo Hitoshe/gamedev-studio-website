@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     new Swiper('.swiper-nh', {
         loop: true,
-        nested: true, // <-- ГЛАВНОЕ ИСПРАВЛЕНИЕ
+        nested: true, 
         navigation: {
             nextEl: '.swiper-nh .swiper-button-next',
             prevEl: '.swiper-nh .swiper-button-prev',
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     new Swiper('.swiper-sotr', {
         loop: true,
-        nested: true, // <-- ГЛАВНОЕ ИСПРАВЛЕНИЕ
+        nested: true, 
         navigation: {
             nextEl: '.swiper-sotr .swiper-button-next',
             prevEl: '.swiper-sotr .swiper-button-prev',

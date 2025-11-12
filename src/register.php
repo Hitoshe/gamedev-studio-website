@@ -19,27 +19,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Подключаемся к БД
     require 'db_connect.php';
 
-    // Получаем данные из формы
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    // Валидация
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $message = t('REGISTER_INVALID_EMAIL');
     } elseif (strlen($password) < 6) {
         $message = t('REGISTER_PASSWORD_TOO_SHORT');
     } else {
         try {
-            // Обновляем структуру таблицы, добавляя новые поля, если их нет
-            $pdo->exec("ALTER TABLE users ADD COLUMN IF NOT EXISTS is_active BOOLEAN DEFAULT FALSE");
-            $pdo->exec("ALTER TABLE users ADD COLUMN IF NOT EXISTS verification_token VARCHAR(255) NULL");
-
-            // Генерируем уникальный токен и хешируем пароль
+            // Создаем таблицу users со всеми необходимыми колонками СРАЗУ
+            $pdo->exec("CREATE TABLE IF NOT EXISTS users (
+                id SERIAL PRIMARY KEY,
+                email VARCHAR(255) UNIQUE NOT NULL,
+                password VARCHAR(255) NOT NULL,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                is_active BOOLEAN DEFAULT FALSE NOT NULL,
+                verification_token VARCHAR(255),
+                role VARCHAR(50) DEFAULT 'user' NOT NULL
+            )");
+            
             $verification_token = bin2hex(random_bytes(32));
             $hashed_password = password_hash($password, PASSWORD_DEFAULT);
             
-            // Вставляем нового пользователя со статусом is_active = false
-            $sql = "INSERT INTO users (email, password, verification_token, is_active) VALUES (?, ?, ?, FALSE)";
+            $sql = "INSERT INTO users (email, password, verification_token) VALUES (?, ?, ?)";
             $stmt = $pdo->prepare($sql);
             $stmt->execute([$email, $hashed_password, $verification_token]);
 
@@ -50,14 +53,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $mail->isSMTP();
                 $mail->Host = 'smtp.gmail.com';
                 $mail->SMTPAuth = true;
-                $mail->Username = 'dragfiredragon4@gmail.com'; // <-- ЗАМЕНИТЕ НА ВАШ GMAIL
-                $mail->Password = 'ivvb quhk ltuz aiyv'; // <-- ЗАМЕНИТЕ НА ВАШ 16-ЗНАЧНЫЙ ПАРОЛЬ ПРИЛОЖЕНИЯ
+                $mail->Username = 'dragfiredragon4@gmail.com'; // GMAIL
+                $mail->Password = 'ivvb quhk ltuz aiyv'; // ПАРОЛЬ ПРИЛОЖЕНИЯ
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
                 $mail->Port = 587;
                 $mail->CharSet = 'UTF-8';
 
                 // Отправитель и получатель
-                $mail->setFrom('your.email@gmail.com', 'PineappleSoup Studio');
+                $mail->setFrom('psoup.studio@gmail.com', 'PineappleSoup Studio');
                 $mail->addAddress($email);
 
                 // Контент письма
@@ -73,12 +76,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $message_type = 'success';
 
             } catch (Exception $e) {
-                // Если письмо не отправилось, сообщаем об этом
                 $message = t('REGISTER_EMAIL_ERROR') . " {$mail->ErrorInfo}";
             }
 
         } catch (PDOException $e) {
-            // Если email уже существует
             if ($e->getCode() == 23505) {
                 $message = t('REGISTER_EMAIL_EXISTS');
             } else {

@@ -29,6 +29,10 @@ services:
     container_name: gamedev_db
     restart: always
     environment:
+      #POSTGRES_USER: user
+      #POSTGRES_PASSWORD: password
+      #POSTGRES_DB: gamedev_db
+      # POSTGRES_HOST_AUTH_METHOD: trust
       POSTGRES_USER: ${DB_USER}
       POSTGRES_PASSWORD: ${DB_PASSWORD}
       POSTGRES_DB: ${DB_NAME}
@@ -37,5 +41,19 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
+  # 4. Сервис для MongoDB
+  mongo:
+    image: mongo:5.0
+    container_name: gamedev_mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: rootpassword
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
 volumes:
   postgres_data:
+  mongo_data:

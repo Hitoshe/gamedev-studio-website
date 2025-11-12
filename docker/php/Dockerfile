@@ -9,5 +9,10 @@ RUN apt-get update && apt-get install -y \
     git \
     && docker-php-ext-install pdo pdo_pgsql
 
+# Устанавливаем зависимости и само расширение через PECL
+RUN apt-get install -y libssl-dev && \
+    pecl install mongodb && \
+    docker-php-ext-enable mongodb
+
 # Устанавливаем Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer

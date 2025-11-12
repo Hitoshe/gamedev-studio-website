@@ -51,6 +51,16 @@ if (session_status() === PHP_SESSION_NONE) {
                 <a href="?lang=ru" class="<?php echo $_SESSION['lang'] == 'ru' ? 'active' : ''; ?>">RU</a>
             </div>
 
+            <!-- ============================================= -->
+            <!-- НОВЫЙ БЛОК: ССЫЛКА НА АДМИН-ПАНЕЛЬ ДЛЯ АДМИНОВ -->
+            <!-- ============================================= -->
+            <?php if (isset($_SESSION['is_admin']) && $_SESSION['is_admin'] === true): ?>
+                <div class="admin-link">
+                    <a href="/admin/index.php">Admin Panel</a>
+                </div>
+            <?php endif; ?>
+            <!-- ============================================= -->
+
             <!-- Ссылки для авторизации/пользователя -->
             <div class="auth-links">
                 <?php if (isset($_SESSION['user_id'])): ?>

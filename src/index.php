@@ -1,5 +1,22 @@
-<?php require_once 'init.php'; ?>
-<?php include 'templates/header.php'; ?>
+<?php
+require_once 'init.php';
+include 'templates/header.php';
+
+// --- ПОДКЛЮЧАЕМСЯ К MONGODB И ПОЛУЧАЕМ НОВОСТИ ---
+// Этот файл мы создавали для админки, теперь используем его и здесь
+require_once 'admin/mongo_connect.php';
+
+// Ищем все документы в коллекции 'news'
+$posts = $newsCollection->find(
+    [], // Пустой фильтр, чтобы получить все новости
+    [
+        'sort' => ['created_at' => -1], // Сортируем по дате создания (новые сверху)
+        'limit' => 4                    // Ограничиваем количество до 4 последних
+    ]
+);
+// --------------------------------------------------
+
+?>
 
 <!-- УЛУЧШЕННАЯ СЕКЦИЯ СО СЛАЙДЕРОМ -->
 <section class="hero-slider">
@@ -16,10 +33,8 @@
                         <a href="#" class="btn-buy"><?php echo t('HERO_BUTTON'); ?></a>
                     </div>
                     <div class="media-slider">
-                        <!-- ИСПРАВЛЕНО: Добавлен уникальный класс swiper-bof -->
                         <div class="swiper swiper-nested swiper-bof">
                             <div class="swiper-wrapper">
-                                <!-- ЗАМЕНИТЕ НА ВАШИ СКРИНШОТЫ -->
                                 <div class="swiper-slide"><img src="/assets/images/screenshots/bof_ss1.jpg" alt="Burden of Flame Screenshot 1"></div>
                                 <div class="swiper-slide"><img src="/assets/images/screenshots/bof_ss2.jpg" alt="Burden of Flame Screenshot 2"></div>
                                 <div class="swiper-slide"><img src="/assets/images/screenshots/bof_ss3.jpg" alt="Burden of Flame Screenshot 3"></div>
@@ -40,10 +55,8 @@
                         <a href="#" class="btn-buy"><?php echo t('HERO_BUTTON'); ?></a>
                     </div>
                     <div class="media-slider">
-                        <!-- ИСПРАВЛЕНО: Добавлен уникальный класс swiper-nh -->
                         <div class="swiper swiper-nested swiper-nh">
                             <div class="swiper-wrapper">
-                                <!-- ЗАМЕНИТЕ НА ВАШИ СКРИНШОТЫ -->
                                 <div class="swiper-slide"><img src="/assets/images/screenshots/nh_ss1.jpg" alt="Nitro Heist Screenshot 1"></div>
                                 <div class="swiper-slide"><img src="/assets/images/screenshots/nh_ss2.jpg" alt="Nitro Heist Screenshot 2"></div>
                                 <div class="swiper-slide"><img src="/assets/images/screenshots/nh_ss3.jpg" alt="Nitro Heist Screenshot 3"></div>
@@ -64,10 +77,8 @@
                         <a href="#" class="btn-buy"><?php echo t('HERO_BUTTON'); ?></a>
                     </div>
                     <div class="media-slider">
-                        <!-- ИСПРАВЛЕНО: Добавлен уникальный класс swiper-sotr -->
                         <div class="swiper swiper-nested swiper-sotr">
                             <div class="swiper-wrapper">
-                                <!-- ЗАМЕНИТЕ НА ВАШИ СКРИНШОТЫ -->
                                 <div class="swiper-slide"><img src="/assets/images/screenshots/sotr_ss1.jpg" alt="Shadow of the Ronin Screenshot 1"></div>
                                 <div class="swiper-slide"><img src="/assets/images/screenshots/sotr_ss2.jpg" alt="Shadow of the Ronin Screenshot 2"></div>
                                 <div class="swiper-slide"><img src="/assets/images/screenshots/sotr_ss3.jpg" alt="Shadow of the Ronin Screenshot 3"></div>
@@ -90,27 +101,31 @@
 <!-- БОКОВИНКИ -->
 <div class="content-with-columns">
 
-<!-- Секция новостей (остается без изменений) -->
+<!-- Секция новостей -->
 <section class="news-section">
     <h2><?php echo t('LATEST_NEWS'); ?></h2>
     <div class="news-container">
-        <!-- ... ваши новости ... -->
-        <article class="news-item">
-            <h3><?php echo t('NEWS_PREALPHA_TITLE'); ?></h3>
-            <p><?php echo t('NEWS_PREALPHA_TEXT'); ?> <a href="#"><?php echo t('NEWS_READ_MORE'); ?></a></p>
-        </article>
-        <article class="news-item">
-            <h3><?php echo t('NEWS_MERCH_TITLE'); ?></h3>
-            <p><?php echo t('NEWS_MERCH_TEXT'); ?> <a href="#"><?php echo t('NEWS_READ_MORE'); ?></a></p>
-        </article>
-        <article class="news-item">
-            <h3><?php echo t('NEWS_STEAM_TITLE'); ?></h3>
-            <p><?php echo t('NEWS_STEAM_TEXT'); ?> <a href="#"><?php echo t('NEWS_READ_MORE'); ?></a></p>
-        </article>
-        <article class="news-item">
-            <h3><?php echo t('NEWS_DEVDIARY_TITLE'); ?></h3>
-            <p><?php echo t('NEWS_DEVDIARY_TEXT'); ?> <a href="#"><?php echo t('NEWS_READ_MORE'); ?></a></p>
-        </article>
+        
+<!-- ДИНАМИЧЕСКИЙ ВЫВОД НОВОСТЕЙ -->
+        <?php foreach ($posts as $post): ?>
+            <article class="news-item">
+                <h3>
+                    <?php
+                    // Пытаемся показать заголовок на текущем языке, если его нет - показываем на английском
+                    $current_lang = $_SESSION['lang'] ?? 'en';
+                    echo htmlspecialchars($post['title'][$current_lang] ?? $post['title']['en'] ?? 'Untitled');
+                    ?>
+                </h3>
+                <p>
+                    <?php
+                    // То же самое для текста
+                    echo nl2br(htmlspecialchars($post['content'][$current_lang] ?? $post['content']['en'] ?? 'No content.'));
+                    ?>
+                    <a href="#"><?php echo t('NEWS_READ_MORE'); ?></a>
+                </p>
+            </article>
+        <?php endforeach; ?>
+
     </div>
 </section>
 

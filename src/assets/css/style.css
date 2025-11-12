@@ -135,6 +135,19 @@ a:hover {
     color: #fff;
 }
 
+/* --- Ссылка на админ-панель --- */
+.admin-link {
+    padding-left: 1.5rem;
+    margin-left: 1.5rem;
+    border-left: 1px solid var(--secondary-text-color);
+}
+.admin-link a {
+    color: var(--accent-color) !important;
+}
+.admin-link a:hover {
+    color: #fff !important;
+}
+
 /*
 ========================================
 ГЛАВНАЯ СТРАНИЦА: СЛАЙДЕР И НОВОСТИ

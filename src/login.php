@@ -28,8 +28,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['user_email'] = $user['email'];
 
+        // Проверяем, является ли пользователь админом
+        if ($user['role'] === 'admin') {
+        $_SESSION['is_admin'] = true;
+        }
+
         // Делаем редирект. Это сработает, потому что HTML еще не выводился.
-        header('Location: /');
+        header('Location: /index.php');
         exit(); // Завершаем скрипт
 
     } else {
