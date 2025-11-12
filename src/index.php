@@ -3,7 +3,6 @@ require_once 'init.php';
 include 'templates/header.php';
 
 // --- ПОДКЛЮЧАЕМСЯ К MONGODB И ПОЛУЧАЕМ НОВОСТИ ---
-// Этот файл мы создавали для админки, теперь используем его и здесь
 require_once 'admin/mongo_connect.php';
 
 // Ищем все документы в коллекции 'news'
