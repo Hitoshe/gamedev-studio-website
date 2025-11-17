@@ -24,15 +24,16 @@ services:
       - php # Говорим, что Nginx зависит от PHP
 
   # 3. Сервис для базы данных PostgreSQL
+
+    #POSTGRES_USER: user
+    #POSTGRES_PASSWORD: password
+    #POSTGRES_DB: gamedev_db
+    #POSTGRES_HOST_AUTH_METHOD: trust
   db:
     image: postgres:13 # Используем официальный образ PostgreSQL
     container_name: gamedev_db
     restart: always
     environment:
-      #POSTGRES_USER: user
-      #POSTGRES_PASSWORD: password
-      #POSTGRES_DB: gamedev_db
-      # POSTGRES_HOST_AUTH_METHOD: trust
       POSTGRES_USER: ${DB_USER}
       POSTGRES_PASSWORD: ${DB_PASSWORD}
       POSTGRES_DB: ${DB_NAME}

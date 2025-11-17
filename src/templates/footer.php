@@ -42,7 +42,7 @@
                     </div>
 
                     <div class="footer-column">
-                        <h2 class="footer-heading-large"><a href="#"><?php echo t('FOOTER_MERCH'); ?></a></h2>
+                        <h2 class="footer-heading-large"><a href="/merch.php"><?php echo t('FOOTER_MERCH'); ?></a></h2>
                     </div>
 
                     <div class="footer-column">

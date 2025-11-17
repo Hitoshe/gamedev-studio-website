@@ -39,7 +39,7 @@ if (session_status() === PHP_SESSION_NONE) {
                 <li><a href="/games.php"><?php echo t('HEADER_GAMES'); ?></a></li>
                 <li><a href="/faq.php"><?php echo t('HEADER_FAQ'); ?></a></li>
                 <li><a href="/careers.php"><?php echo t('HEADER_CAREERS'); ?></a></li>
-                <li><a href="#"><?php echo t('HEADER_MERCH'); ?></a></li>
+                <li><a href="/merch.php"><?php echo t('HEADER_MERCH'); ?></a></li>
             </ul>
         </nav>
 

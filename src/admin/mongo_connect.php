@@ -1,14 +1,22 @@
 <?php
-// Подключаем "автозагрузчик" Composer.
+// Подключаем автозагрузчик Composer
 require_once __DIR__ . '/../vendor/autoload.php';
 
-// Создаем нового "клиента" для подключения к MongoDB.
+// Создаем клиента для подключения к MongoDB
 $mongoClient = new MongoDB\Client(
-    //Указываем "строку подключения" (connection string).
     'mongodb://root:rootpassword@mongo:27017'
 );
 
-// Выбираем конкретную базу данных.
+// Выбираем нашу базу данных
 $db = $mongoClient->gamedev_db;
-// Выбираем конкретную "коллекцию" внутри базы данных.
+
+// --- СОЗДАЕМ ПЕРЕМЕННЫЕ ДЛЯ ВСЕХ НАШИХ КОЛЛЕКЦИЙ ---
+
+// 1. Коллекция для новостей
 $newsCollection = $db->news;
+
+// 2. Коллекция для товаров
+$productsCollection = $db->products;
+
+// 3. Коллекция для отзывов
+$reviewsCollection = $db->reviews;

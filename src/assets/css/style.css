@@ -852,3 +852,274 @@ a:hover {
     }
 }
 
+/*
+===============
+СТРАНИЦА МЕРЧА
+===============
+*/
+
+/* --- Заголовок страницы с иконкой корзины --- */
+.page-header-with-cart {
+    display: flex;
+    justify-content: center; /* Центрируем заголовок */
+    align-items: center;
+    position: relative; /* Чтобы можно было позиционировать корзину */
+    margin-bottom: 3rem; /* Отступ до товаров */
+}
+.page-header-with-cart h1 {
+    margin: 0;
+    font-size: 3rem;
+}
+
+.cart-icon-link {
+    position: absolute; /* Позиционируем корзину относительно родителя */
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%); /* Точное выравнивание по центру */
+    font-size: 2rem;
+    color: var(--primary-text-color);
+    text-decoration: none;
+}
+.cart-icon-link:hover {
+    color: var(--accent-color);
+}
+
+/* Счетчик товаров в корзине */
+.cart-counter {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background-color: #c00;
+    color: #fff;
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
+
+/* --- Сетка товаров --- */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+}
+
+.product-card {
+    background-color: var(--surface-color);
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+.product-card a {
+    text-decoration: none;
+    color: var(--primary-text-color);
+}
+
+/* Контейнер для картинки - ГЛАВНЫЙ ФИКС ДЛЯ ПУСТОГО МЕСТА */
+.product-image-container {
+    width: 100%;
+    height: 250px;
+    background-color: #111; /* Темный фон-заглушка на случай, если картинки нет */
+}
+.product-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.product-card .product-info {
+    padding: 1rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+.product-card h3 {
+    margin: 0 0 1rem 0;
+    font-size: 1.5rem;
+}
+
+.product-card-footer {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    border-top: 1px solid #333;
+}
+
+.price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--accent-color);
+}
+
+.btn-buy-small {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+    font-family: var(--font-main);
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+.btn-buy-small:hover {
+    background-color: #ffc107;
+}
+
+/* Стили для таблицы корзины */
+.cart-table { width: 100%; border-collapse: collapse; margin: 2rem 0; }
+.cart-table th, .cart-table td { padding: 1rem; border-bottom: 1px solid #333; }
+.cart-table th { text-align: left; }
+
+/*
+========================================
+СТРАНИЦА ТОВАРА И ОТЗЫВЫ
+========================================
+*/
+.product-details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+.product-image img {
+    width: 100%;
+    border-radius: 5px;
+}
+.product-info .price {
+    font-size: 2rem;
+    margin: 1rem 0;
+}
+.rating-summary {
+    margin-bottom: 1.5rem;
+    color: var(--accent-color);
+}
+.rating-summary span {
+    color: var(--secondary-text-color);
+    margin-left: 0.5rem;
+    font-size: 0.9rem;
+}
+.reviews-section {
+    margin-top: 5rem;
+    border-top: 1px solid #333;
+    padding-top: 3rem;
+}
+.review-form {
+    background-color: var(--surface-color);
+    padding: 1.5rem;
+    border-radius: 5px;
+    margin-bottom: 2rem;
+}
+.review-form textarea {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: var(--bg-color);
+    border: 1px solid var(--secondary-text-color);
+    color: var(--primary-text-color);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+.reviews-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.review-item {
+    background-color: var(--surface-color);
+    padding: 1.5rem;
+    border-radius: 5px;
+}
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #333;
+    padding-bottom: 0.8rem;
+    margin-bottom: 0.8rem;
+}
+.review-stars {
+    color: var(--accent-color);
+}
+/* --- CSS-магия для выбора звезд --- */
+.star-rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}
+.star-rating input { display: none; }
+.star-rating label {
+    font-size: 2rem;
+    color: #444;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+.star-rating input:checked ~ label,
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+    color: var(--accent-color);
+}
+
+/* --- Стили для сортировки отзывов --- */
+.sort-options {
+    margin-bottom: 2rem;
+    text-align: right;
+    font-size: 0.9rem;
+}
+.sort-options a {
+    color: var(--secondary-text-color);
+    text-decoration: none;
+    margin: 0 0.5rem;
+}
+.sort-options a.active {
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+/* --- Стили для формы добавления в корзину --- */
+.add-to-cart-form {
+    display: flex;
+    align-items: center;
+}
+.quantity-input {
+    width: 50px;
+    padding: 0.5rem;
+    text-align: center;
+    background-color: var(--bg-color);
+    border: 1px solid var(--secondary-text-color);
+    color: var(--primary-text-color);
+    border-radius: 4px;
+    margin-right: 0.5rem;
+}
+
+/* --- Стили для кнопки удаления из корзины --- */
+.remove-link {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    color: #c83030; /* Красный цвет для действия "удалить" */
+    font-family: inherit;
+    font-size: 0.9rem;
+    cursor: pointer;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+.remove-link:hover {
+    color: #ff4d4d; /* Более яркий красный при наведении */
+}

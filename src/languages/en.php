@@ -128,4 +128,14 @@ return [
     'GAME_NH_DESC' => 'An adrenaline-fueled arcade racer set in neon-drenched cityscapes. Customize your ride, master the drift, and dominate the asphalt in high-speed illegal races. The night streets are your empire.',
     'GAME_SOTR_DESC' => 'A challenging soulslike action RPG set in a demonic, fallen shogunate. Your blade is an extension of your soul. Master a punishing combat system, defy mythical beasts, and seek redemption.',
     'GAME_VISIT_STEAM' => 'Visit on Steam',
+
+    // Merch & Cart
+    'MERCH_ADD_TO_CART' => 'Add to Cart',
+    'MERCH_SHOPPING_CART' => 'Shopping Cart',
+    'MERCH_EMPTY_CART' => 'Your cart is empty.',
+    'MERCH_CONTINUE_SHOPPING' => 'Continue Shopping',
+    'MERCH_CHECKOUT' => 'Proceed to Checkout',
+    'MERCH_ORDER_SUCCESS' => 'Thank you for your order!',
+    'MERCH_ORDER_SUCCESS_TEXT' => 'Your order has been successfully placed. You can now leave a review for the purchased items.',
+    'MERCH_LEAVE_REVIEW' => 'Leave a Review',
 ];
