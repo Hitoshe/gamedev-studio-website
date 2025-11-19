@@ -860,6 +860,7 @@ a:hover {
 
 .merch-page {
     padding-top: 3rem; /* Добавляем верхний отступ для всей страницы */
+    padding-bottom: 5rem;
 }
 
 /* --- Заголовок страницы с иконкой корзины --- */
@@ -890,6 +891,11 @@ a:hover {
 .currency-switcher-page {
     display: flex;
     gap: 1rem;
+
+    background-color: var(--surface-color); /* Используем цвет наших карточек */
+    padding: 0.5rem 1.5rem; /* Добавляем внутренние отступы */
+    border-radius: 30px; /* Делаем его овальным */
+    border: 1px solid #333; /* Добавляем тонкую рамку */
 }
 
 .currency-switcher-page a {
