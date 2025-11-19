@@ -19,13 +19,23 @@ include 'templates/header.php';
         
         <!-- НОВЫЙ ЗАГОЛОВОК С КОРЗИНОЙ -->
         <div class="page-header-with-cart">
+
+            <!-- НОВЫЙ БЛОК: Переключатель валют слева -->
+            <div class="currency-switcher-page">
+             <a href="?currency=USD" class="<?php if($current_currency == 'USD') echo 'active'; ?>">$</a>
+             <a href="?currency=EUR" class="<?php if($current_currency == 'EUR') echo 'active'; ?>">€</a>
+             <a href="?currency=RUB" class="<?php if($current_currency == 'RUB') echo 'active'; ?>">₽</a>
+             <a href="?currency=BYN" class="<?php if($current_currency == 'BYN') echo 'active'; ?>">Br</a>
+             <a href="?currency=CNY" class="<?php if($current_currency == 'CNY') echo 'active'; ?>">¥</a>
+            </div>
+
             <h1><?php echo t('HEADER_MERCH'); ?></h1>
             <a href="/cart.php" class="cart-icon-link">
                 <i class="fas fa-shopping-cart"></i>
                 <?php if ($cart_item_count > 0): ?>
                     <span class="cart-counter"><?php echo $cart_item_count; ?></span>
                 <?php endif; ?>
-            </a>
+            </a>    
         </div>
 
         <div class="products-grid">
@@ -40,7 +50,7 @@ include 'templates/header.php';
                         </div>
                     </a>
                     <div class="product-card-footer">
-                    <span class="price">$<?php echo number_format($product['price'], 2); ?></span>
+                    <span class="price"><?php echo format_price($product['price']); ?></span>
                     <form action="add_to_cart.php" method="POST" class="add-to-cart-form">
                     <input type="number" name="quantity" value="1" min="1" max="99" class="quantity-input">
                     <input type="hidden" name="product_id" value="<?php echo $product['_id']; ?>">

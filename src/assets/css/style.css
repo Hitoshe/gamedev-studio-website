@@ -861,25 +861,47 @@ a:hover {
 /* --- Заголовок страницы с иконкой корзины --- */
 .page-header-with-cart {
     display: flex;
-    justify-content: center; /* Центрируем заголовок */
+    justify-content: space-between;
     align-items: center;
     position: relative; /* Чтобы можно было позиционировать корзину */
     margin-bottom: 3rem; /* Отступ до товаров */
 }
+
 .page-header-with-cart h1 {
     margin: 0;
     font-size: 3rem;
+    /* Убираем лишнее пространство, чтобы заголовок встал по центру */
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .cart-icon-link {
-    position: absolute; /* Позиционируем корзину относительно родителя */
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%); /* Точное выравнивание по центру */
     font-size: 2rem;
     color: var(--primary-text-color);
     text-decoration: none;
+    position: relative;
 }
+
+.currency-switcher-page {
+    display: flex;
+    gap: 1rem;
+}
+
+.currency-switcher-page a {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--secondary-text-color);
+}
+
+.currency-switcher-page a.active {
+    color: var(--accent-color);
+}
+
+.currency-switcher-page a:not(.active):hover {
+    color: #fff;
+}
+
 .cart-icon-link:hover {
     color: var(--accent-color);
 }

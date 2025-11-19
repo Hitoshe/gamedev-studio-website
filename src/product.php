@@ -85,7 +85,7 @@ include 'templates/header.php';
         </div>
         <div class="product-info">
             <h1><?php echo htmlspecialchars($product['name'][$current_lang]); ?></h1>
-            <p class="price">$<?php echo number_format($product['price'], 2); ?></p>
+            <p class="price"><?php echo format_price($product['price']); ?></p>
             <div class="rating-summary">
                 <?php for($i = 1; $i <= 5; $i++): ?>
                     <i class="fa-star <?php echo $i <= round($average_rating) ? 'fas' : 'far'; ?>"></i>

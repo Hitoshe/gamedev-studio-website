@@ -37,3 +37,61 @@ function t($key) {
     global $t;
     return $t[$key] ?? $key; // Если ключ не найден, возвращаем сам ключ
 }
+
+// =======================================================
+// --- МУЛЬТИВАЛЮТНОСТЬ ---
+// =======================================================
+
+// 1. Список поддерживаемых валют (код => символ)
+$supported_currencies = [
+    'USD' => '$',
+    'EUR' => '€',
+    'RUB' => '₽',
+    'BYN' => 'Br',
+    'CNY' => '¥'
+];
+
+// 2. Примерные курсы относительно USD (1 USD = X другой валюты)
+//    В будущем данные нужно получать через API.
+$exchange_rates = [
+    'USD' => 1,
+    'EUR' => 0.92,  // 1 USD = 0.92 EUR
+    'RUB' => 90.50, // 1 USD = 90.50 RUB
+    'BYN' => 3.25,  // 1 USD = 3.25 BYN
+    'CNY' => 7.25   // 1 USD = 7.25 CNY
+];
+
+// 3. Валюта по умолчанию
+$default_currency = 'USD';
+
+// 4. Логика определения валюты
+if (isset($_GET['currency']) && array_key_exists($_GET['currency'], $supported_currencies)) {
+    $_SESSION['currency'] = $_GET['currency'];
+}
+if (!isset($_SESSION['currency'])) {
+    $_SESSION['currency'] = $default_currency;
+}
+
+// 5. Глобальная переменная с текущей валютой
+$current_currency = $_SESSION['currency'];
+
+// 6. Вспомогательная функция для форматирования цены
+function format_price($price_in_usd) {
+    global $current_currency, $exchange_rates, $supported_currencies;
+
+    // Конвертируем цену из USD в текущую валюту
+    $converted_price = $price_in_usd * $exchange_rates[$current_currency];
+    
+    // Получаем символ валюты
+    $currency_symbol = $supported_currencies[$current_currency];
+
+    // Форматируем число (2 знака после запятой)
+    $formatted_price = number_format($converted_price, 2);
+
+    // Возвращаем строку вида "$24.99" или "2256.55 ₽"
+    if ($current_currency === 'USD' || $current_currency === 'EUR' || $current_currency === 'CNY') {
+        return $currency_symbol . $formatted_price; // Символ перед числом
+    } else {
+        return $formatted_price . ' ' . $currency_symbol; // Символ после числа
+    }
+}

@@ -45,8 +45,8 @@ include 'templates/header.php';
             <?php foreach ($products_in_cart as $item): ?>
                 <tr>
                     <td><?php echo htmlspecialchars($item['name'][$current_lang]); ?></td>
-                    <td>$<?php echo number_format($item['price'], 2); ?></td>
-                    <td><?php echo $item['quantity']; ?></td>
+                    <td><?php echo format_price($item['price']); ?></td>
+                    <td><?php echo format_price($item['price'] * $item['quantity']); ?></td>
                     <td>$<?php echo number_format($item['price'] * $item['quantity'], 2); ?></td>
                     
                     <td>
@@ -60,7 +60,7 @@ include 'templates/header.php';
             <?php endforeach; ?>
             </tbody>
         </table>
-        <h3>Total: $<?php echo number_format($total_price, 2); ?></h3>
+        <h3>Total: <?php echo format_price($total_price); ?></h3>
         <a href="checkout.php" class="btn-buy"><?php echo t('MERCH_CHECKOUT'); ?></a>
     <?php endif; ?>
 </div>
