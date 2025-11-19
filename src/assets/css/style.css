@@ -858,6 +858,10 @@ a:hover {
 ===============
 */
 
+.merch-page {
+    padding-top: 3rem; /* Добавляем верхний отступ для всей страницы */
+}
+
 /* --- Заголовок страницы с иконкой корзины --- */
 .page-header-with-cart {
     display: flex;
@@ -889,7 +893,7 @@ a:hover {
 }
 
 .currency-switcher-page a {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     font-weight: bold;
     color: var(--secondary-text-color);
 }

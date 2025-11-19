@@ -25,7 +25,7 @@ include 'templates/header.php';
              <a href="?currency=USD" class="<?php if($current_currency == 'USD') echo 'active'; ?>">$</a>
              <a href="?currency=EUR" class="<?php if($current_currency == 'EUR') echo 'active'; ?>">€</a>
              <a href="?currency=RUB" class="<?php if($current_currency == 'RUB') echo 'active'; ?>">₽</a>
-             <a href="?currency=BYN" class="<?php if($current_currency == 'BYN') echo 'active'; ?>">Br</a>
+             <a href="?currency=BYN" class="<?php if($current_currency == 'BYN') echo 'active'; ?>">BYN</a>
              <a href="?currency=CNY" class="<?php if($current_currency == 'CNY') echo 'active'; ?>">¥</a>
             </div>
 

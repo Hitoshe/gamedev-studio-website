@@ -47,7 +47,7 @@ $supported_currencies = [
     'USD' => '$',
     'EUR' => '€',
     'RUB' => '₽',
-    'BYN' => 'Br',
+    'BYN' => 'BYN',
     'CNY' => '¥'
 ];
 
