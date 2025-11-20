@@ -20,7 +20,7 @@ $products = [
             'en' => 'An adorable (yet grumpy) plushie gnome, a perfect guardian for your desk.',
             'ru' => 'Очаровательный (но ворчливый) плюшевый гном, идеальный страж для вашего рабочего стола.'
         ],
-        'image' => '/assets/images/merch/gnome.jpg',
+        'image' => '/assets/images/merch/gnome.png',
         'price' => 24.99,
         'slug' => 'gnome-plushie'
     ],
@@ -33,20 +33,20 @@ $products = [
             'en' => 'High-quality black t-shirt with the official game logo.',
             'ru' => 'Высококачественная черная футболка с официальным логотипом игры.'
         ],
-        'image' => '/assets/images/merch/tshirt.jpg',
+        'image' => '/assets/images/merch/tshirt.png',
         'price' => 19.99,
         'slug' => 'bof-tshirt'
     ],
     [
         'name' => [
-            'en' => 'Torch Night Light',
-            'ru' => 'Ночник-факел'
+            'en' => 'Helmet Night Light',
+            'ru' => 'Ночник-шлем'
         ],
         'description' => [
-            'en' => 'A USB-powered night light shaped like a dungeon torch. Keeps the darkness at bay.',
-            'ru' => 'Ночник с питанием от USB в форме факела из подземелья. Удерживает тьму на расстоянии.'
+            'en' => 'A USB-powered night light shaped like a dark knight helmet. Keeps the darkness at bay.',
+            'ru' => 'Ночник с питанием от USB в форме рыцарского шлема. Удерживает тьму на расстоянии.'
         ],
-        'image' => '/assets/images/merch/torch.jpg',
+        'image' => '/assets/images/merch/helmet.png',
         'price' => 29.99,
         'slug' => 'torch-light'
     ],
@@ -59,20 +59,20 @@ $products = [
             'en' => 'A terrifyingly cute plush monster from the lower depths.',
             'ru' => 'Ужасающе милый плюшевый монстр из нижних глубин.'
         ],
-        'image' => '/assets/images/merch/monster.jpg',
+        'image' => '/assets/images/merch/monster.png',
         'price' => 26.99,
         'slug' => 'monster-plushie'
     ],
     [
         'name' => [
-            'en' => 'Studio Logo Mug',
-            'ru' => 'Кружка с логотипом студии'
+            'en' => 'Gnome Mug',
+            'ru' => 'Кружка с гномом'
         ],
         'description' => [
-            'en' => 'A sturdy ceramic mug with the PineappleSoup studio logo.',
-            'ru' => 'Прочная керамическая кружка с логотипом.'
+            'en' => 'A sturdy ceramic mug with the Gnome.',
+            'ru' => 'Прочная керамическая кружка с гномом.'
         ],
-        'image' => '/assets/images/merch/mug.jpg',
+        'image' => '/assets/images/merch/mug.png',
         'price' => 14.99,
         'slug' => 'studio-mug'
     ],
@@ -82,10 +82,10 @@ $products = [
             'ru' => 'Значок-пламя'
         ],
         'description' => [
-            'en' => 'An elegant enamel pin in the shape of the Burden of Flame icon.',
-            'ru' => 'Элегантный эмалированный значок в форме ... .'
+            'en' => 'An elegant enamel pin in the shape of the candle.',
+            'ru' => 'Элегантный эмалированный значок в форме свечи.'
         ],
-        'image' => '/assets/images/merch/pin.jpg',
+        'image' => '/assets/images/merch/pin.png',
         'price' => 9.99,
         'slug' => 'flame-pin'
     ],
