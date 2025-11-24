@@ -34,9 +34,9 @@ $posts = $newsCollection->find(
                     <div class="media-slider">
                         <div class="swiper swiper-nested swiper-bof">
                             <div class="swiper-wrapper">
-                                <div class="swiper-slide"><img src="/assets/images/screenshots/bof_ss1.jpg" alt="Burden of Flame Screenshot 1"></div>
-                                <div class="swiper-slide"><img src="/assets/images/screenshots/bof_ss2.jpg" alt="Burden of Flame Screenshot 2"></div>
-                                <div class="swiper-slide"><img src="/assets/images/screenshots/bof_ss3.jpg" alt="Burden of Flame Screenshot 3"></div>
+                                <div class="swiper-slide"><img src="/assets/images/BurdenOfFlame/2gameScrin.png" alt="Burden of Flame Screenshot 1"></div>
+                                <div class="swiper-slide"><img src="/assets/images/BurdenOfFlame/3gameScrin.png" alt="Burden of Flame Screenshot 2"></div>
+                                <div class="swiper-slide"><img src="/assets/images/BurdenOfFlame/1gameScrin.png" alt="Burden of Flame Screenshot 3"></div>
                             </div>
                             <div class="swiper-button-next"></div>
                             <div class="swiper-button-prev"></div>

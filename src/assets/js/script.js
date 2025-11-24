@@ -10,8 +10,8 @@ document.addEventListener('DOMContentLoaded', function() {
             clickable: true,
         },
         navigation: {
-            nextEl: '.hero-slider .swiper-button-next',
-            prevEl: '.hero-slider .swiper-button-prev',
+            nextEl: '.hero-slider > .swiper > .swiper-button-next',
+            prevEl: '.hero-slider > .swiper > .swiper-button-prev',
         },
     });
 
