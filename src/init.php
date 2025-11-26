@@ -95,3 +95,5 @@ function format_price($price_in_usd) {
         return $formatted_price . ' ' . $currency_symbol; // Символ после числа
     }
 }
+
+$current_lang_code = $_SESSION['lang'] ?? 'en';

@@ -6,7 +6,7 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 ?>
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="<?php echo $current_lang_code; ?>" data-lang="<?php echo $current_lang_code; ?>">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,7 +15,7 @@ if (session_status() === PHP_SESSION_NONE) {
     <!-- Подключаем шрифты с Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&family=Cormorant+Unicase:wght@400;900&display=swap" rel="stylesheet">
 
     <!-- Font Awesome для иконок -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -62,17 +62,19 @@ if (session_status() === PHP_SESSION_NONE) {
             <!-- ============================================= -->
 
             <!-- Ссылки для авторизации/пользователя -->
+
             <div class="auth-links">
-                <?php if (isset($_SESSION['user_id'])): ?>
-                    <!-- Если пользователь авторизован -->
-                    <span class="user-email"><?php echo htmlspecialchars($_SESSION['user_email']); ?></span>
-                    <a href="/logout.php"><?php echo t('HEADER_LOGOUT'); ?></a>
+   
+            <?php if (isset($_SESSION['user_id'])): ?>
+                <!-- Если пользователь авторизован, оставляем текст -->
+                <span class="user-email"><?php echo htmlspecialchars($_SESSION['user_email']); ?></span>
+                <a href="/logout.php"><?php echo t('HEADER_LOGOUT'); ?></a>
                 <?php else: ?>
-                    <!-- Если пользователь гость -->
-                    <a href="/login.php"><?php echo t('HEADER_LOGIN'); ?></a>
-                    <a href="/register.php"><?php echo t('HEADER_REGISTER'); ?></a>
-                <?php endif; ?>
-            </div>
+                    <!-- Если пользователь гость, показываем иконки -->
+                    <a href="/login.php" title="<?php echo t('HEADER_LOGIN'); ?>"><i class="fas fa-right-to-bracket"></i></a>
+                    <a href="/register.php" title="<?php echo t('HEADER_REGISTER'); ?>"><i class="fas fa-user-plus"></i></a>
+                    <?php endif; ?>
+                </div>
 
             <script src="/assets/js/script.js"></script>
             

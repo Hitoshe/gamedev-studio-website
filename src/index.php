@@ -56,9 +56,9 @@ $posts = $newsCollection->find(
                     <div class="media-slider">
                         <div class="swiper swiper-nested swiper-nh">
                             <div class="swiper-wrapper">
-                                <div class="swiper-slide"><img src="/assets/images/screenshots/nh_ss1.jpg" alt="Nitro Heist Screenshot 1"></div>
-                                <div class="swiper-slide"><img src="/assets/images/screenshots/nh_ss2.jpg" alt="Nitro Heist Screenshot 2"></div>
-                                <div class="swiper-slide"><img src="/assets/images/screenshots/nh_ss3.jpg" alt="Nitro Heist Screenshot 3"></div>
+                                <div class="swiper-slide"><img src="/assets/images/NITRO HEIST/nh_ss1.jpg" alt="Nitro Heist Screenshot 1"></div>
+                                <div class="swiper-slide"><img src="/assets/images/NITRO HEIST/nh_ss2.jpg" alt="Nitro Heist Screenshot 2"></div>
+                                <div class="swiper-slide"><img src="/assets/images/NITRO HEIST/nh_ss3.jpg" alt="Nitro Heist Screenshot 3"></div>
                             </div>
                             <div class="swiper-button-next"></div>
                             <div class="swiper-button-prev"></div>
@@ -78,9 +78,9 @@ $posts = $newsCollection->find(
                     <div class="media-slider">
                         <div class="swiper swiper-nested swiper-sotr">
                             <div class="swiper-wrapper">
-                                <div class="swiper-slide"><img src="/assets/images/screenshots/sotr_ss1.jpg" alt="Shadow of the Ronin Screenshot 1"></div>
-                                <div class="swiper-slide"><img src="/assets/images/screenshots/sotr_ss2.jpg" alt="Shadow of the Ronin Screenshot 2"></div>
-                                <div class="swiper-slide"><img src="/assets/images/screenshots/sotr_ss3.jpg" alt="Shadow of the Ronin Screenshot 3"></div>
+                                <div class="swiper-slide"><img src="/assets/images/SHADOW OF THE RONIN/sotr_ss1.jpg" alt="Shadow of the Ronin Screenshot 1"></div>
+                                <div class="swiper-slide"><img src="/assets/images/SHADOW OF THE RONIN/sotr_ss2.jpg" alt="Shadow of the Ronin Screenshot 2"></div>
+                                <div class="swiper-slide"><img src="/assets/images/SHADOW OF THE RONIN/sotr_ss3.jpg" alt="Shadow of the Ronin Screenshot 3"></div>
                             </div>
                             <div class="swiper-button-next"></div>
                             <div class="swiper-button-prev"></div>

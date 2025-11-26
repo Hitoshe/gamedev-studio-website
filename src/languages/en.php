@@ -113,10 +113,10 @@ return [
     'LOGIN_INVALID_CREDENTIALS' => 'Invalid email or password.',
 
     // About Page
-    'ABOUT_TITLE' => 'About Us',
-    'ABOUT_INTRO_HEADING' => 'Forging Worlds from Code and Dreams',
-    'ABOUT_INTRO_TEXT' => 'PineappleSoup is an independent game development studio fueled by a passion for creating immersive and unforgettable gaming experiences. We believe in the power of storytelling, innovative gameplay, and artistic excellence. Our small, dedicated team works tirelessly to bring unique worlds to life.',
-    'ABOUT_TEAM_HEADING' => 'Meet the Team',
+    'ABOUT_TITLE' => 'Our Manifesto',
+    'ABOUT_INTRO_HEADING' => 'We Don’t Just Make Games. We Forge Legends.',
+    'ABOUT_INTRO_TEXT' => "Born from a shared vision in the heart of Los Angeles, PineappleSoup is more than just a game development studio—we are architects of digital worlds and weavers of epic tales. Our mission is to challenge conventions and craft experiences that resonate long after the screen goes dark. We blend intricate storytelling with razor-sharp gameplay mechanics, believing that the best games are not just played, but lived. Our globally distributed team is a collective of industry veterans and passionate innovators, all united by a single goal: to create the legends of tomorrow.",
+    'ABOUT_TEAM_HEADING' => 'The Architects of Worlds',
     'ABOUT_TEAM_MEMBER_1_ROLE' => 'Founder & Lead Programmer',
     'ABOUT_TEAM_MEMBER_2_ROLE' => 'Cofounder & Lead Programmer',
     'ABOUT_TEAM_MEMBER_1' => 'Vadim Poplavsky',

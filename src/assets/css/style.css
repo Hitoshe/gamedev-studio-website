@@ -14,6 +14,10 @@
     --column-width: 80px;
 }
 
+html[data-lang="ru"] {
+    --font-main: 'Cormorant Unicase', serif;
+}
+
 body {
     background-color: var(--bg-color);
     color: var(--primary-text-color);
@@ -722,22 +726,59 @@ a:hover {
 СТРАНИЦА "О НАС" (ABOUT)
 ========================================
 */
+/* --- Главный контейнер страницы --- */
+.about-page {
+    padding-top: 3rem;
+    padding-bottom: 5rem;
+}
+
+/* --- Главный заголовок "Our Manifesto" --- */
+.about-page > h1 {
+    text-align: center; /* Центрируем */
+    font-size: 3rem;
+    margin-bottom: 4rem; /* Увеличиваем отступ снизу */
+}
+
+/* --- Секция "Интро" с картинкой и текстом --- */
 .about-intro {
     display: flex;
-    gap: 2rem;
-    align-items: center;
+    gap: 3rem; /* Увеличиваем расстояние между картинкой и текстом */
+    align-items: center; /* Выравниваем по центру по вертикали */
     margin-bottom: 5rem;
+
+    /* Ограничиваем максимальную ширину и центрируем всю секцию */
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
 }
+
+/* --- Контейнер для картинки --- */
 .about-intro-image {
-    flex-basis: 50%;
+    flex: 0 0 45%; /* Картинка занимает 45% ширины и не растягивается */
 }
 .about-intro-image img {
     width: 100%;
-    border-radius: 5px;
+    border-radius: 8px; /* Делаем углы более скругленными */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3); /* Добавляем тень */
+    display: block;
 }
+
+/* --- Контейнер для текста --- */
 .about-intro-text {
-    flex-basis: 50%;
+    flex-basis: 55%;
 }
+.about-intro-text h2 {
+    font-size: 2.2rem;
+    color: var(--accent-color); /* Делаем подзаголовок акцентного цвета */
+    margin-top: 0;
+}
+.about-intro-text p {
+    font-size: 1.1rem;
+    line-height: 1.8; /* Увеличиваем межстрочный интервал для читаемости */
+    color: var(--secondary-text-color);
+}
+
+/* --- Секция команды (остается без изменений) --- */
 .team-section h2 {
     text-align: center;
     font-size: 2.5rem;

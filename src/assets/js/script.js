@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // 2. Вложенные слайдеры
     new Swiper('.swiper-bof', {
         loop: true,
-        nested: true, // <-- ГЛАВНОЕ ИСПРАВЛЕНИЕ
+        nested: true,
         navigation: {
             nextEl: '.swiper-bof .swiper-button-next',
             prevEl: '.swiper-bof .swiper-button-prev',

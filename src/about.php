@@ -11,7 +11,7 @@
         <section class="about-intro">
             <div class="about-intro-image">
                 <!-- Одна из картинок со слайдера для атмосферы -->
-                <img src="/assets/images/94597305382d17e61d6e6b28375da18e.jpg" alt="Studio Atmosphere">
+                <img src="/assets/images/About/about1.jpg" alt="Studio Atmosphere">
             </div>
             <div class="about-intro-text">
                 <h2><?php echo t('ABOUT_INTRO_HEADING'); ?></h2>
@@ -26,8 +26,8 @@
                 
                 <div class="team-member">
                     <div class="team-member-photo">
-                        <!-- Заглушка для фото. -->
-                        <img src="https://via.placeholder.com/250" alt="Team Member 1 Photo">
+                        <!-- фото. -->
+                        <img src="/assets/images/About/about2.jpg" alt="Team Member 1 Photo">
                     </div>
                     <h3><?php echo t('ABOUT_TEAM_MEMBER_1'); ?></p></h3>
                     <p class="team-member-role"><?php echo t('ABOUT_TEAM_MEMBER_1_ROLE'); ?></p>
@@ -35,8 +35,8 @@
 
                 <div class="team-member">
                     <div class="team-member-photo">
-                        <!-- Заглушка для фото. -->
-                        <img src="https://via.placeholder.com/250" alt="Team Member 2 Photo">
+                        <!-- фото. -->
+                        <img src="/assets/images/About/about3.jpg" alt="Team Member 2 Photo">
                     </div>
                     <h3><?php echo t('ABOUT_TEAM_MEMBER_2'); ?></p></h3>
                     <p class="team-member-role"><?php echo t('ABOUT_TEAM_MEMBER_2_ROLE'); ?></p>
