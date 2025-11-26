@@ -17,7 +17,7 @@ $posts = $newsCollection->find(
 
 ?>
 
-<!-- УЛУЧШЕННАЯ СЕКЦИЯ СО СЛАЙДЕРОМ -->
+<!-- СЕКЦИЯ СО СЛАЙДЕРОМ -->
 <section class="hero-slider">
     <!-- Главный контейнер Swiper -->
     <div class="swiper">

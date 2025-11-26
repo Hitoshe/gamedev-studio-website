@@ -4,7 +4,7 @@
 <!-- Обертка для боковых колонн -->
 <div class="content-with-columns">
     <div class="page-container games-page">
-        <h1><?php echo t('GAMES_TITLE'); ?></h1>
+        <h1 id="bof"><?php echo t('GAMES_TITLE'); ?></h1>
 
         <!-- ИГРА 1: BURDEN OF FLAME -->
         <article class="game-entry">
@@ -16,9 +16,9 @@
                 <h2>BURDEN OF FLAME</h2>
                 <p><?php echo t('GAME_BOF_DESC'); ?></p>
                 <!-- Реальная ссылка на Steam -->
-                <a href="#" class="btn-buy steam-link" target="_blank"><i class="fab fa-steam"></i> <?php echo t('GAME_VISIT_STEAM'); ?></a>
+                <a  id="nh" href="#" class="btn-buy steam-link" target="_blank"><i class="fab fa-steam"></i> <?php echo t('GAME_VISIT_STEAM'); ?></a>
             </div>
-        </article>
+        </article >
 
         <!-- ИГРА 2: NITRO HEIST -->
         <article class="game-entry">
@@ -28,7 +28,7 @@
             <div class="game-info">
                 <h2>NITRO HEIST</h2>
                 <p><?php echo t('GAME_NH_DESC'); ?></p>
-                <a href="#" class="btn-buy steam-link" target="_blank"><i class="fab fa-steam"></i> <?php echo t('GAME_VISIT_STEAM'); ?></a>
+                <a id="sotr" href="#" class="btn-buy steam-link" target="_blank"><i class="fab fa-steam"></i> <?php echo t('GAME_VISIT_STEAM'); ?></a>
             </div>
         </article>
 

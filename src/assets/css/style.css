@@ -324,14 +324,14 @@ a:hover {
 /* --- Секция новостей --- */
 /* (Этот блок остался без изменений) */
 .news-section {
-    padding-top: 4rem;
+    padding-top: 1.5rem;
     padding-bottom: 4rem;
 }
 
 .news-section h2 {
     text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
+    font-size: 3.5rem;
+    margin-bottom: 3rem;
 }
 
 .news-container {
@@ -719,6 +719,9 @@ a:hover {
         flex-direction: column;
         align-items: flex-start;
     }
+    .media-slider {
+    display: none !important;
+}
 }
 
  /*
@@ -848,6 +851,7 @@ a:hover {
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    position: relative;
 }
 
 /* Последнему элементу убираем нижний отступ, чтобы он был ближе к футеру */

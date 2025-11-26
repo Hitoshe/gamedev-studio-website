@@ -31,9 +31,9 @@
                         <h2 class="footer-heading-large"><a href="/games.php"><?php echo t('FOOTER_GAMES'); ?></a></h2>
                         <ul class="link-list">
                             <!-- Названия игр не переводим -->
-                            <li><a href="#">Burden of Flame</a></li>
-                            <li><a href="#">Shadow of the Ronin</a></li>
-                            <li><a href="#">Nitro Heist</a></li>
+                            <li><a href="/games.php#bof">Burden of Flame</a></li>
+                            <li><a href="/games.php#sotr">Shadow of the Ronin</a></li>
+                            <li><a href="/games.php#nh">Nitro Heist</a></li>
                         </ul>
                     </div>
 
