@@ -14,7 +14,7 @@ if (!$product) {
     die("Product not found!");
 }
 
-// --- Обработка формы отзыва (НОВАЯ ЛОГИКА) ---
+// --- Обработка формы отзыва ---
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['rating'])) {
     if (!isset($_SESSION['user_id'])) {
         die("You must be logged in to leave a review.");

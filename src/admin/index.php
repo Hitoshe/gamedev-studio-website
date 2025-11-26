@@ -27,6 +27,7 @@ include '../templates/header.php';
 <div class="page-container">
     <h1>Admin Panel: Manage News</h1>
     <a href="add_news.php" class="btn-buy">Add New Post</a>
+    <a href="analytics.php" class="btn-buy" style="margin-left: 1rem;">DB Analytics</a>
     <hr style="margin: 2rem 0;">
 
     <?php foreach ($posts as $post): ?>

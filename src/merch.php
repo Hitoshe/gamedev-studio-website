@@ -17,10 +17,10 @@ include 'templates/header.php';
 <div class="content-with-columns">
     <div class="page-container merch-page">
         
-        <!-- НОВЫЙ ЗАГОЛОВОК С КОРЗИНОЙ -->
+        <!-- ЗАГОЛОВОК С КОРЗИНОЙ -->
         <div class="page-header-with-cart">
 
-            <!-- НОВЫЙ БЛОК: Переключатель валют слева -->
+            <!-- Переключатель валют слева -->
             <div class="currency-switcher-page">
              <a href="?currency=USD" class="<?php if($current_currency == 'USD') echo 'active'; ?>">$</a>
              <a href="?currency=EUR" class="<?php if($current_currency == 'EUR') echo 'active'; ?>">€</a>
