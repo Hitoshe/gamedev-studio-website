@@ -17,6 +17,9 @@ return [
     'SLIDE_NH_SLOGAN' => 'The night streets are your empire. Grab the wheel, hit the gas, and own the asphalt.',
     'SLIDE_SOTR_SLOGAN' => 'Your blade is your soul, and death is just the beginning. Defy the demons of a fallen shogunate.',
     'HERO_BUTTON' => 'Buy Now',
+    'SLIDE_BOF_PRICE' => '$6.99',
+    'SLIDE_NH_PRICE' => '$26.00',
+    'SLIDE_SOTR_PRICE' => '$42.00',
 
     // News Section
     'LATEST_NEWS'=> 'LATEST NEWS',

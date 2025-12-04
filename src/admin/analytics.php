@@ -186,7 +186,7 @@ if ($query_name === 'text_search') {
         </div>
 
         <div>
-            <h4>Complex Queries (Lab #5)</h4>
+            <h4>Complex Queries</h4>
              <ul style="list-style: none; padding: 0;">
                 <li><a href="?query=supplier_country">10. Nested (Supplier from USA)</a></li>
                 <li><a href="?query=has_tag">11. Array (Has 'new' tag)</a></li>

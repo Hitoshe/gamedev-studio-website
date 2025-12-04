@@ -29,7 +29,10 @@ $posts = $newsCollection->find(
                     <div class="hero-content">
                         <h1>BURDEN OF FLAME</h1>
                         <p><?php echo t('SLIDE_BOF_SLOGAN'); ?></p>
-                        <a href="#" class="btn-buy"><?php echo t('HERO_BUTTON'); ?></a>
+                        <div class="buy-block">
+                            <span class="price-display"><?php echo t('SLIDE_BOF_PRICE'); ?></span>
+                            <a href="/games.php#bof" class="btn-buy"><?php echo t('HERO_BUTTON'); ?></a>
+                        </div>
                     </div>
                     <div class="media-slider">
                         <div class="swiper swiper-nested swiper-bof">
@@ -51,7 +54,10 @@ $posts = $newsCollection->find(
                     <div class="hero-content">
                         <h1>NITRO HEIST</h1>
                         <p><?php echo t('SLIDE_NH_SLOGAN'); ?></p>
-                        <a href="#" class="btn-buy"><?php echo t('HERO_BUTTON'); ?></a>
+                        <div class="buy-block">
+                            <span class="price-display"><?php echo t('SLIDE_NH_PRICE'); ?></span>
+                            <a href="/games.php#nh" class="btn-buy"><?php echo t('HERO_BUTTON'); ?></a>
+                        </div>
                     </div>
                     <div class="media-slider">
                         <div class="swiper swiper-nested swiper-nh">
@@ -73,7 +79,10 @@ $posts = $newsCollection->find(
                     <div class="hero-content">
                         <h1>SHADOW OF THE RONIN</h1>
                         <p><?php echo t('SLIDE_SOTR_SLOGAN'); ?></p>
-                        <a href="#" class="btn-buy"><?php echo t('HERO_BUTTON'); ?></a>
+                        <div class="buy-block">
+                            <span class="price-display"><?php echo t('SLIDE_SOTR_PRICE'); ?></span>
+                            <a href="/games.php#sotr" class="btn-buy"><?php echo t('HERO_BUTTON'); ?></a>
+                        </div>
                     </div>
                     <div class="media-slider">
                         <div class="swiper swiper-nested swiper-sotr">

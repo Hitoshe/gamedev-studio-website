@@ -221,22 +221,48 @@ a:hover {
     max-width: 500px;
 }
 
+/* --- Блок с ценой и кнопкой покупки в слайдере --- */
+.buy-block {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem; /* Расстояние между ценой и кнопкой */
+}
+
+/* --- Стиль для отображения цены --- */
+.price-display {
+    font-family: Arial, sans-serif; /* Читаемый шрифт */
+    font-size: 2rem; /* Крупный размер */
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+}
+
+/* --- Обновленный стиль для кнопки "Buy Now" --- */
 .btn-buy {
     display: inline-block;
-    padding: 0.8rem 2rem;
+    padding: 1rem 2rem;
     background-color: var(--accent-color);
-    color: var(--bg-color);
-    font-family: var(--font-main);
+    color: #000; /* Черный текст для лучшей читаемости на желтом */
+    
+    /* ИЗМЕНЕНИЯ: */
+    font-family: Arial, sans-serif; /* Простой, читаемый шрифт */
     font-size: 1rem;
-    font-weight: 700;
+    font-weight: bold; /* Делаем текст жирным */
+    text-transform: uppercase; /* Все буквы заглавные */
+    letter-spacing: 1px; /* Небольшой разрядка букв */
+    
     border: none;
+    border-radius: 8px; /* <-- СКРУГЛЯЕМ УГЛЫ */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3); /* Добавляем тень */
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease; /* Анимируем все свойства */
 }
 
 .btn-buy:hover {
-    background-color: #ffc107;
+    background-color: #ffc107; /* Более яркий желтый при наведении */
     color: #000;
+    transform: translateY(-3px); /* Эффект "приподнимания" */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
 }
 
 /* --- Правая колонка с медиа-слайдером --- */

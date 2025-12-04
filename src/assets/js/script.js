@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // --- ИНИЦИАЛИЗАЦИЯ ВСЕХ СЛАЙДЕРОВ ---
 
-    // 1. Главный слайдер
+    // 1. Главный слайдер (инициализируем отдельно)
     new Swiper('.hero-slider .swiper', {
         loop: true,
         pagination: {
@@ -15,35 +15,34 @@ document.addEventListener('DOMContentLoaded', function() {
         },
     });
 
-    // 2. Вложенные слайдеры
-    new Swiper('.swiper-bof', {
-        loop: true,
-        nested: true,
-        navigation: {
-            nextEl: '.swiper-bof .swiper-button-next',
-            prevEl: '.swiper-bof .swiper-button-prev',
-        },
+    // 2. Вложенные слайдеры (инициализируем в цикле - более надежно)
+    const nestedSwiperConfigs = [
+        { selector: '.swiper-bof', delay: 2500 },
+        { selector: '.swiper-nh',  delay: 2500 },
+        { selector: '.swiper-sotr', delay: 2500 }
+    ];
+
+    nestedSwiperConfigs.forEach(config => {
+        const swiperEl = document.querySelector(config.selector);
+        if (swiperEl) { // Проверяем, что элемент существует
+            new Swiper(swiperEl, { // Передаем сам DOM-элемент, а не строку
+                loop: true,
+                nested: true,
+                autoplay: {
+                    delay: config.delay,
+                    disableOnInteraction: false,
+                    pauseOnMouseEnter: true, // УЛУЧШЕНИЕ: останавливать при наведении мыши
+                },
+                navigation: {
+                    // Ищем кнопки внутри этого конкретного элемента
+                    nextEl: swiperEl.querySelector('.swiper-button-next'),
+                    prevEl: swiperEl.querySelector('.swiper-button-prev'),
+                },
+            });
+        }
     });
 
-    new Swiper('.swiper-nh', {
-        loop: true,
-        nested: true, 
-        navigation: {
-            nextEl: '.swiper-nh .swiper-button-next',
-            prevEl: '.swiper-nh .swiper-button-prev',
-        },
-    });
-
-    new Swiper('.swiper-sotr', {
-        loop: true,
-        nested: true, 
-        navigation: {
-            nextEl: '.swiper-sotr .swiper-button-next',
-            prevEl: '.swiper-sotr .swiper-button-prev',
-        },
-    });
-
-    // --- ЭФФЕКТ "МАТОВОГО СТЕКЛА" ДЛЯ ХЭДЕРА ---
+    // --- ЭФФЕКТ "МАТОГО СТЕКЛА" ДЛЯ ХЭДЕРА ---
     const header = document.querySelector('.main-header');
     const handleHeaderScroll = () => {
         if (!header) return;
