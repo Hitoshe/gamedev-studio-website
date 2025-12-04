@@ -8,7 +8,7 @@
         <h1><?php echo t('ABOUT_TITLE'); ?></h1>
 
         <!-- Секция с описанием студии -->
-        <section class="about-intro">
+        <section class="about-intro fade-in-up">
             <div class="about-intro-image">
                 <!-- Одна из картинок со слайдера для атмосферы -->
                 <img src="/assets/images/About/about1.jpg" alt="Studio Atmosphere">
@@ -24,7 +24,7 @@
             <h2><?php echo t('ABOUT_TEAM_HEADING'); ?></h2>
             <div class="team-grid">
                 
-                <div class="team-member">
+                <div class="team-member fade-in-up">
                     <div class="team-member-photo">
                         <!-- фото. -->
                         <img src="/assets/images/About/about2.jpg" alt="Team Member 1 Photo">
@@ -33,7 +33,7 @@
                     <p class="team-member-role"><?php echo t('ABOUT_TEAM_MEMBER_1_ROLE'); ?></p>
                 </div>
 
-                <div class="team-member">
+                <div class="team-member fade-in-up">
                     <div class="team-member-photo">
                         <!-- фото. -->
                         <img src="/assets/images/About/about3.jpg" alt="Team Member 2 Photo">

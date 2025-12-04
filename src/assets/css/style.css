@@ -1226,3 +1226,86 @@ a:hover {
 .remove-link:hover {
     color: #ff4d4d; /* Более яркий красный при наведении */
 }
+
+/*
+========================================
+АНИМИРОВАННЫЙ "ТУМАН"
+========================================
+*/
+
+/* --- Создаем саму анимацию --- */
+@keyframes fog-movement {
+    0% {
+        transform: translateX(-10%); /* Начинаем немного левее */
+    }
+    50% {
+        transform: translateX(10%); /* Двигаемся вправо */
+    }
+    100% {
+        transform: translateX(-10%); /* Возвращаемся обратно */
+    }
+}
+
+/* --- Стили для "Тумана" --- */
+body::after {
+    content: '';
+    position: fixed;
+    bottom: 0;
+    left: -20%; /* Делаем элемент шире экрана, чтобы движение было плавным */
+    right: -20%;
+    height: 125px; /* Можно сделать чуть выше */
+    
+    /* Градиент стал сложнее, чтобы имитировать слои тумана */
+    background: linear-gradient(to top, 
+        var(--bg-color) 20%, 
+        rgba(18, 18, 18, 0.8) 50%, 
+        transparent 100%
+    );
+    
+    /* Применяем анимацию */
+    animation: fog-movement 20s ease-in-out infinite; /* 20 секунд на цикл, бесконечно */
+
+    z-index: 100;
+    pointer-events: none;
+    
+    /* Плавное исчезновение */
+    opacity: 1;
+    transition: opacity 0.5s ease-out;
+}
+
+/* --- Стиль для скрытия тумана --- */
+body.near-footer::after {
+    opacity: 0;
+}
+
+/* --- Подготовка элементов к анимации --- */
+
+/* 
+ * Сначала мы "прячем" все элементы, которые хотим анимировать.
+ * Мы делаем их прозрачными и немного сдвигаем вниз.
+ */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* 
+ * Когда JavaScript добавит класс .visible, 
+ * мы возвращаем элементы в их нормальное состояние.
+ * Плавный переход 'transition' сделает этот процесс красивым.
+ */
+.fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Добавим небольшую задержку для элементов в сетке, чтобы они появлялись по очереди */
+.news-item:nth-child(2) { transition-delay: 0.1s; }
+.news-item:nth-child(3) { transition-delay: 0.2s; }
+.news-item:nth-child(4) { transition-delay: 0.3s; }
+
+.game-entry:nth-child(2) { transition-delay: 0.1s; }
+.game-entry:nth-child(3) { transition-delay: 0.2s; }
+
+.team-member:nth-child(2) { transition-delay: 0.1s; }

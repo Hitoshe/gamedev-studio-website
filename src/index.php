@@ -111,12 +111,12 @@ $posts = $newsCollection->find(
 
 <!-- Секция новостей -->
 <section class="news-section">
-    <h2><?php echo t('LATEST_NEWS'); ?></h2>
+    <h2 class="fade-in-up"><?php echo t('LATEST_NEWS'); ?></h2>
     <div class="news-container">
         
 <!-- ДИНАМИЧЕСКИЙ ВЫВОД НОВОСТЕЙ -->
         <?php foreach ($posts as $post): ?>
-            <article class="news-item">
+            <article class="news-item fade-in-up">
                 <h3>
                     <?php
                     // Пытаемся показать заголовок на текущем языке, если его нет - показываем на английском
