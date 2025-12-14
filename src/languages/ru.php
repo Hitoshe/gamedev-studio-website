@@ -45,6 +45,9 @@ return [
     'FOOTER_COOKIES' => 'Настройки cookie',
     'FOOTER_PRIVACY' => 'Политика конфиденциальности',
     'FOOTER_FAN_CONTENT' => 'Правила для фанатского контента',
+    'FOOTER_ABOUT' => 'О НАС',
+    'FOOTER_CAREERS' => 'КАРЬЕРА',
+
 
     // FAQ Page
     'FAQ_TITLE' => 'Часто Задаваемые Вопросы (FAQ)',

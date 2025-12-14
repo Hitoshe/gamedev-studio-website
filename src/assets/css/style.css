@@ -675,10 +675,22 @@ a:hover {
 
 /* --- Стили для планшетов и телефонов (до 900px) --- */
 @media (max-width: 900px) {
-    /* --- Прячем основное меню --- */
+
+ 
+    /* Отменяем расталкивание по краям */
+    .main-header {
+        justify-content: flex-start; 
+    }
+    /* Прячем основное меню */
     .main-nav {
         display: none; 
     }
+    /* Прижимаем правую панель вправо */
+    .header-right-panel {
+        margin-left: auto;
+    }
+
+
 
     /* --- Остальные стили для этого разрешения --- */
     .content-with-columns {
@@ -698,6 +710,8 @@ a:hover {
         grid-template-columns: 1fr;
     }
 }
+
+
 
 
 /* --- Стили только для телефонов (до 768px) --- */

@@ -45,6 +45,9 @@ return [
     'FOOTER_COOKIES' => 'Cookies settings',
     'FOOTER_PRIVACY' => 'Privacy policy',
     'FOOTER_FAN_CONTENT' => 'Fan content policy',
+    'FOOTER_ABOUT' => 'ABOUT',
+    'FOOTER_CAREERS' => 'CAREERS',
+
 
     // FAQ Page
     'FAQ_TITLE' => 'Frequently Asked Questions (FAQ)',

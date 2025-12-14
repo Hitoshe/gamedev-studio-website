@@ -1,4 +1,4 @@
-</div> <!-- КОНЕЦ .content-with-columns -->
+</div>
 
 
     <!-- ФУТЕР С ВИЗУАЛЬНЫМ РАЗДЕЛЕНИЕМ -->
@@ -39,6 +39,14 @@
 
                     <div class="footer-column">
                         <h2 class="footer-heading-large"><a href="/faq.php"><?php echo t('FOOTER_FAQ'); ?></a></h2>
+                    </div>
+
+                    <div class="footer-column">
+                        <h2 class="footer-heading-large"><a href="/careers.php"><?php echo t('FOOTER_CAREERS'); ?></a></h2>
+                    </div>
+
+                    <div class="footer-column">
+                        <h2 class="footer-heading-large"><a href="/about.php"><?php echo t('FOOTER_ABOUT'); ?></a></h2>
                     </div>
 
                     <div class="footer-column">
