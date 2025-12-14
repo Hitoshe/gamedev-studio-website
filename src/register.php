@@ -64,7 +64,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $mail->addAddress($email);
 
                 // Контент письма
-                $verification_link = "http://localhost:8080/verify.php?token=" . $verification_token;
+                //$verification_link = "http://localhost:8080/verify.php?token=" . $verification_token;
+                $verification_link = "https://jayne-aeonian-superornamentally.ngrok-free.dev/verify.php?token=" . $verification_token;
+                // Временно для ngrok
                 $mail->isHTML(true);
                 $mail->Subject = t('REGISTER_EMAIL_SUBJECT');
                 $mail->Body    = t('REGISTER_EMAIL_BODY_HTML') . "<br><a href='{$verification_link}'>{$verification_link}</a>";

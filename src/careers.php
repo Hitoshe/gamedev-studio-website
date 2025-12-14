@@ -33,7 +33,7 @@
                     <li><?php echo t('JOB_PROGRAMMER_Q3'); ?></li>
                     <li><?php echo t('JOB_PROGRAMMER_Q4'); ?></li>
                 </ul>
-                <a href="mailto:psoup.studio@gmail.com?subject=Application for UE5 Programmer" class="btn-apply"><?php echo t('CAREERS_APPLY_NOW'); ?></a>
+                <a href="/apply.php?job=programmer" class="btn-apply"><?php echo t('CAREERS_APPLY_NOW'); ?></a>
             </article>
 
             <!-- ВАКАНСИЯ 2: 3D ХУДОЖНИК -->
@@ -56,7 +56,7 @@
                     <li><?php echo t('JOB_ARTIST_Q3'); ?></li>
                     <li><?php echo t('JOB_ARTIST_Q4'); ?></li>
                 </ul>
-                <a href="mailto:psoup.studio@gmail.com?subject=Application for 3D Artist" class="btn-apply"><?php echo t('CAREERS_APPLY_NOW'); ?></a>
+                <a href="/apply.php?job=artist" class="btn-apply"><?php echo t('CAREERS_APPLY_NOW'); ?></a>
             </article>
 
             <!-- ВАКАНСИЯ 3: ЗВУКОВОЙ ДИЗАЙНЕР -->
@@ -79,8 +79,7 @@
                     <li><?php echo t('JOB_SOUND_Q3'); ?></li>
                     <li><?php echo t('JOB_SOUND_Q4'); ?></li>
                 </ul>
-                <a href="mailto:psoup.studio@gmail.com?subject=Application for Sound Designer" class="btn-apply"><?php echo t('CAREERS_APPLY_NOW'); ?></a>
-            </article>
+                <a href="/apply.php?job=sound" class="btn-apply"><?php echo t('CAREERS_APPLY_NOW'); ?></a>
 
         </div>
     </div>

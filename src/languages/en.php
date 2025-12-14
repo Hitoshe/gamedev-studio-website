@@ -141,4 +141,15 @@ return [
     'MERCH_ORDER_SUCCESS' => 'Thank you for your order!',
     'MERCH_ORDER_SUCCESS_TEXT' => 'Your order has been successfully placed. You can now leave a review for the purchased items.',
     'MERCH_LEAVE_REVIEW' => 'Leave a Review',
+
+    // Application Page
+    'APPLY_TITLE' => 'Apply for a Position',
+    'APPLY_JOB_TITLE_LABEL' => 'Applying for:',
+    'APPLY_SELECT_JOB' => '--- Select a Position ---',
+    'APPLY_CV_LABEL' => 'Your CV/Resume (PDF, DOC, DOCX):',
+    'APPLY_COVER_LETTER_LABEL' => 'Cover Letter (Optional):',
+    'APPLY_SUBMIT_BUTTON' => 'Submit Application',
+    'APPLY_SUCCESS_TITLE' => 'Application Sent!',
+    'APPLY_SUCCESS_TEXT' => 'Thank you for your interest in our studio. We have received your application and will review it shortly.',
+    'APPLY_GO_BACK' => 'Back to Careers',
 ];
