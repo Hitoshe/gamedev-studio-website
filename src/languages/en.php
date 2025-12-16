@@ -60,6 +60,13 @@ return [
     'FAQ_Q4_TITLE' => 'Question 4: How much will Burden of Flame cost?',
     'FAQ_Q4_TEXT' => 'Around $6.',
 
+    'FAQ_FORM_TITLE' => "Didn't find an answer?",
+    'FAQ_FORM_TEXT' => 'If you have a question that is not listed here, feel free to ask it below. We will try to answer you as soon as possible.',
+    'FAQ_FORM_EMAIL_LABEL' => 'Your Email:',
+    'FAQ_FORM_QUESTION_LABEL' => 'Your Question:',
+    'FAQ_FORM_SUBMIT_BUTTON' => 'Send Question',
+    'FAQ_FORM_SUCCESS_MESSAGE' => 'Thank you! Your question has been sent.',
+
     // Careers Page
     'CAREERS_TITLE' => 'Careers',
     'CAREERS_INTRO' => "We are a passionate team dedicated to creating unforgettable worlds. We're looking for talented individuals to join us on our next great adventure. If you are driven by creativity and a love for games, you might be the hero we're searching for.",
@@ -155,4 +162,7 @@ return [
     'APPLY_SUCCESS_TITLE' => 'Application Sent!',
     'APPLY_SUCCESS_TEXT' => 'Thank you for your interest in our studio. We have received your application and will review it shortly.',
     'APPLY_GO_BACK' => 'Back to Careers',
+
+    'DELETE_ACCOUNT_CONFIRM' => 'Are you sure you want to permanently delete your account? This action cannot be undone.',
+    'DELETE_ACCOUNT_LINK' => 'Delete my account',
 ];

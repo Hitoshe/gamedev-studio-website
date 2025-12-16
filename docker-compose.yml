@@ -1,25 +1,27 @@
-# Финальная, рабочая конфигурация
 
 services:
   # 1. Сервис для PHP
   php:
     build:
-      context: ./docker/php  # Указываем путь к нашему Dockerfile
+      context: ./docker/php  # Указываем путь к Dockerfile
     container_name: gamedev_php
     volumes:
-      - ./src:/var/www/html # Синхронизируем наш код с папкой внутри контейнера
+      - ./src:/var/www/html # Синхронизируем код с папкой внутри контейнера
     depends_on:
       - db
+    environment:
+    GMAIL_USER: ${GMAIL_USER}
+    GMAIL_APP_PASSWORD: ${GMAIL_APP_PASSWORD}
 
   # 2. Сервис для веб-сервера Nginx
   nginx:
-    image: nginx:1.25-alpine # Используем официальный, легкий образ Nginx
+    image: nginx:1.25-alpine # Nginx
     container_name: gamedev_nginx
     ports:
-      - "8080:80" # Пробрасываем порт 8080 на компьютер
+      - "8080:80" # Пробрасываем порт 8080
     volumes:
       - ./src:/var/www/html
-      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf # Подключаем нашу конфигурацию для Nginx
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf # Подключаем конфигурацию Nginx
     depends_on:
       - php # Говорим, что Nginx зависит от PHP
 

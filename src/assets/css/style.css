@@ -761,7 +761,20 @@ a:hover {
     }
     .media-slider {
     display: none !important;
-}
+    }
+
+    .page-header-with-cart h1 {
+        display: none; 
+    }
+
+    .media-slider {
+        display: none !important;
+    } 
+
+        .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }
 
  /*
@@ -1104,6 +1117,49 @@ a:hover {
 .cart-table th, .cart-table td { padding: 1rem; border-bottom: 1px solid #333; }
 .cart-table th { text-align: left; }
 
+
+/*
+========================================
+FAQ
+========================================
+*/
+.faq-page {
+padding-bottom: 5rem;
+}
+
+.faq-form-section {
+margin-top: 5rem;
+border-top: 1px solid #333;
+padding-top: 3rem;
+text-align: center;
+}
+
+.page-container {
+    padding: 4rem 10%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+.faq-item {
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #333;
+    padding-bottom: 1.5rem;
+}
+.faq-item h3 {
+    color: var(--accent-color);
+}
+
+/* --- Стили для формы на странице FAQ --- */
+.faq-form-section {
+margin-top: 5rem;
+border-top: 1px solid #333;
+padding-top: 3rem;
+text-align: center;
+}
+
+.faq-form-section .form-container {
+margin-top: 2rem;
+text-align: left; /* Выравниваем содержимое самой формы по левому краю */
+}
 /*
 ========================================
 СТРАНИЦА ТОВАРА И ОТЗЫВЫ
@@ -1323,3 +1379,17 @@ body.near-footer::after {
 .game-entry:nth-child(3) { transition-delay: 0.2s; }
 
 .team-member:nth-child(2) { transition-delay: 0.1s; }
+
+/* Применяем стили ко всем элементам формы: input, select, textarea */
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: var(--bg-color);
+    border: 1px solid var(--secondary-text-color);
+    color: var(--primary-text-color);
+    border-radius: 3px;
+    font-family: Arial, sans-serif; /* Добавляем стандартный шрифт для консистентности */
+    font-size: 1rem;
+}

@@ -15,8 +15,9 @@
             <div class="game-info">
                 <h2>BURDEN OF FLAME</h2>
                 <p><?php echo t('GAME_BOF_DESC'); ?></p>
+                <h2>6.99$</h2>
                 <!-- Реальная ссылка на Steam -->
-                <a  id="nh" href="#" class="btn-buy steam-link" target="_blank"><i class="fab fa-steam"></i> <?php echo t('GAME_VISIT_STEAM'); ?></a>
+                <a  id="nh" href="https://store.steampowered.com/app/1966720/Lethal_Company/" class="btn-buy steam-link" target="_blank"><i class="fab fa-steam"></i> <?php echo t('GAME_VISIT_STEAM'); ?></a>
             </div>
         </article >
 
@@ -28,7 +29,8 @@
             <div class="game-info">
                 <h2>NITRO HEIST</h2>
                 <p><?php echo t('GAME_NH_DESC'); ?></p>
-                <a id="sotr" href="#" class="btn-buy steam-link" target="_blank"><i class="fab fa-steam"></i> <?php echo t('GAME_VISIT_STEAM'); ?></a>
+                <h2>26.00$</h2>
+                <a id="sotr" href="https://store.steampowered.com/app/1846380/Need_for_Speed_Unbound/" class="btn-buy steam-link" target="_blank"><i class="fab fa-steam"></i> <?php echo t('GAME_VISIT_STEAM'); ?></a>
             </div>
         </article>
 
@@ -39,8 +41,9 @@
             </div>
             <div class="game-info">
                 <h2>SHADOW OF THE RONIN</h2>
+                <h2>42.00$</h2>
                 <p><?php echo t('GAME_SOTR_DESC'); ?></p>
-                <a href="#" class="btn-buy steam-link" target="_blank"><i class="fab fa-steam"></i> <?php echo t('GAME_VISIT_STEAM'); ?></a>
+                <a href="https://store.steampowered.com/app/814380/Sekiro_Shadows_Die_Twice__GOTY_Edition/" class="btn-buy steam-link" target="_blank"><i class="fab fa-steam"></i> <?php echo t('GAME_VISIT_STEAM'); ?></a>
             </div>
         </article>
         

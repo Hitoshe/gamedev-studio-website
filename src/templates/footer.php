@@ -13,16 +13,17 @@
                 <p><?php echo t('FOOTER_SOCIAL_TEXT'); ?></p>
                 <ul class="social-links">
                     <!-- Названия брендов не переводим -->
-                    <li><a href="#"><i class="fab fa-facebook-f"></i> Facebook</a></li>
-                    <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
-                    <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
-                    <li><a href="#"><i class="fab fa-youtube"></i> Youtube</a></li>
-                    <li><a href="#"><i class="fab fa-tiktok"></i> TikTok</a></li>
-                    <li><a href="#"><i class="fab fa-steam"></i> Steam</a></li>
-                    <li><a href="#"><i class="fab fa-discord"></i> Discord</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=xvFZjo5PgG0&list=RDxvFZjo5PgG0&start_radio=1"><i class="fab fa-facebook-f"></i> Facebook</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=xvFZjo5PgG0&list=RDxvFZjo5PgG0&start_radio=1"><i class="fab fa-twitter"></i> Twitter</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=xvFZjo5PgG0&list=RDxvFZjo5PgG0&start_radio=1"><i class="fab fa-instagram"></i> Instagram</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=xvFZjo5PgG0&list=RDxvFZjo5PgG0&start_radio=1"><i class="fab fa-youtube"></i> Youtube</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=xvFZjo5PgG0&list=RDxvFZjo5PgG0&start_radio=1"><i class="fab fa-tiktok"></i> TikTok</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=xvFZjo5PgG0&list=RDxvFZjo5PgG0&start_radio=1"><i class="fab fa-steam"></i> Steam</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=xvFZjo5PgG0&list=RDxvFZjo5PgG0&start_radio=1"><i class="fab fa-discord"></i> Discord</a></li>
                 </ul>
             </div>
 
+            
             <!-- ПРАВАЯ СЕКЦИЯ (светлый фон) -->
             <div class="footer-right-panel">
                 <!-- Внутренняя сетка для "квадратиков" -->
@@ -75,10 +76,14 @@
                             ?>
                         </p>
                         <p>
-                            <a href="#"><?php echo t('FOOTER_COOKIES'); ?></a> | 
-                            <a href="#"><?php echo t('FOOTER_PRIVACY'); ?></a> | 
-                            <a href="#"><?php echo t('FOOTER_FAN_CONTENT'); ?></a>
+                            <a href="https://i.pinimg.com/1200x/35/2a/60/352a6025ce84c25f7b9eb64fce3f1b3d.jpg"><?php echo t('FOOTER_COOKIES'); ?></a> | 
+                            <a href="https://i.pinimg.com/1200x/35/2a/60/352a6025ce84c25f7b9eb64fce3f1b3d.jpg"><?php echo t('FOOTER_PRIVACY'); ?></a> | 
+                            <a href="https://i.pinimg.com/1200x/35/2a/60/352a6025ce84c25f7b9eb64fce3f1b3d.jpg"><?php echo t('FOOTER_FAN_CONTENT'); ?></a>
                         </p>
+
+                            <a href="/delete_account.php" class="remove-link" onclick="return confirm('Are you sure you want to permanently delete your account? This action cannot be undone.');" title="Delete Account">
+                            <i class="fas fa-trash-alt"></i> <!-- Иконка корзины -->
+                        </a>
                     </div>
                 </div>
             </div>

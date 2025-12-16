@@ -67,7 +67,13 @@ if (session_status() === PHP_SESSION_NONE) {
    
             <?php if (isset($_SESSION['user_id'])): ?>
                 <!-- Если пользователь авторизован, оставляем текст -->
-                <span class="user-email"><?php echo htmlspecialchars($_SESSION['user_email']); ?></span>
+                <span class="user-email">
+            <?php 
+            // Разбиваем email по символу '@' и берем только первую часть (логин)
+            $username = explode('@', $_SESSION['user_email'])[0];
+            echo htmlspecialchars($username); 
+                ?>
+            </span>
                 <a href="/logout.php"><?php echo t('HEADER_LOGOUT'); ?></a>
                 <?php else: ?>
                     <!-- Если пользователь гость, показываем иконки -->

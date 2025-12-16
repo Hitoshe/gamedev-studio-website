@@ -64,6 +64,14 @@ include 'templates/header.php';
             <input type="password" id="password" name="password" required>
         </div>
         <button type="submit" class="btn-buy">Login</button>
+
+
+        <div style="text-align: center; margin-top: 1.5rem;">
+        <a href="/delete_account.php" class="remove-link" onclick="return confirm('<?php echo t('DELETE_ACCOUNT_CONFIRM'); ?>');">
+        <?php echo t('DELETE_ACCOUNT_LINK'); ?>
+        </a>
+        </div>
+        </div>
     </form>
 </div>
 

@@ -7,7 +7,6 @@ require_once __DIR__ . '/vendor/autoload.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-// Подключаем шапку сайта
 include 'templates/header.php';
 
 // Переменные для хранения сообщений
